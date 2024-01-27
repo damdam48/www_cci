@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>select le pays</h1>
+    <!-- liste de pays -->
+    <div>
+        <label for="ville_select">choisi ton pays (<b><i>liste</i></b>) ?</label>
+        <select name="ville_select" id="ville_select">
+            <option value="">--choisi une option</option>
+            <option value="Amérique">Amérique</option>
+            <option value="Afrique">Afrique</option>
+            <option value="Europe">Europe</option>
+        </select>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="ville_select_2">choisi ton pays (<b><i>Groupe</i></b>) ?</label>
+        <select name="ville_select_2" id="ville_select_2">
+            <!--Groupe 1--  -->
+            <optgroup label="Groupe 1">
+                <option>Amérique</option>
+            </optgroup>
+
+            <!-- Groupe 2 -->
+            <optgroup label="Groupe 2">
+                <option>Afrique</option>
+            </optgroup>
+
+            <!-- Groupe 3 -->
+            <optgroup label="Groupe 3">
+                <option>Europe</option>
+            </optgroup>
+        </select>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "tp_sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./src/main.scss ./public/css/style.css --watch --style compressed"
+  },
+  "author": "damien",
+  "license": "MIT"
+}

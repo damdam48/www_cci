@@ -1,0 +1,181 @@
+:root {
+    --font-main: 'Open Sans', sans-serif;
+    --font-headings : 'Abel', sans-serif;
+    --blue : #7e98a7;
+    --darkblue : #566b77;
+    --white : lightgrey;
+    --black : rgb(37, 37, 37);
+    --border-radius : 5px;
+}
+
+/* TEXT FORMAT  */
+body {
+    font-family: var(--font-main);
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headings);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--darkblue);
+}
+
+/* COLORS */
+.bg-dark {
+    background: var(--black);
+    color: var(--white);
+}
+
+.bg-light {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* size */
+.display-1 {
+    font-size: 3rem;
+}
+
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: .8rem 1rem;
+    border-radius: var(--border-radius);
+    font-family: var(--font-headings);
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.btn.btn-blue {
+    background: var(--blue);
+    color: var(--white);
+}
+
+/* NAV BAR  */
+nav {
+    background: var(--white);
+    color: var(--black);
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: .4rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+nav ul {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li::after {
+    content: "|";
+}
+
+nav ul li:last-child::after {
+    content: "";
+}
+
+nav ul li a {
+    color: inherit;
+}
+
+/* les blocs  */
+/* section */
+section {
+    padding: 3rem 3rem 5rem;
+}
+
+section h2 {
+    margin-bottom: .5rem;
+}
+
+section h2 + hr {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3rem;
+}
+
+/* header */
+header {
+    padding: 5rem 1rem .8rem;
+    background-image: url("../img/bg-header.jpg");
+    background-size: cover;
+}
+
+header #logo {
+    margin-bottom: 4rem;
+}
+
+header #logo img {
+    border: 1px solid var(--white);
+    background: var(--black);
+    padding: 3px;
+    margin-bottom: .6rem;
+}
+
+/* welcome  */
+
+/* competence */
+section#competence > div {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    min-height: 192px;
+    text-align: left;
+
+}
+
+section#competence > div  img {
+    float: left;
+    margin-right: .8rem;
+}
+
+/* references */
+section#ref #container > div {
+    display: inline-block;
+    width: 300px;
+    margin-right: 150px;
+}
+
+section#ref #container > div:last-child {
+    margin-right: 0px;
+}
+
+section#ref #container > div figcaption {
+    font-size: .8rem;
+    font-style: italic;
+    line-height: 1.2rem;
+}
+
+/* footer */
+footer {
+    height: 3rem;
+}

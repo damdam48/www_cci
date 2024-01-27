@@ -1,0 +1,15 @@
+Définir les mots clés
+
+Pour mettre en avant certains mots clés, nous allons voir de nouvelles balises : la balise strong pour les mots clés très importants et la balise em pour des mots clés relativement importants.
+
+L’ordre de fermeture des balises suit une logique bien précise : on commence toujours par refermer la dernière balise qui a été ouverte.
+La balise strong
+
+L'élément HTML strong indique que le texte a une importance particulière. Son utilisation se traduit généralement par un affichage en gras, cependant cette balise ne doit pas être utilisée à des fins stylistiques.
+
+Pour mettre une partie de texte en gras à des fins de pure présentation, il faudra utiliser la propriété CSS font-weight.
+La balise em
+
+L'élément HTML em est utilisé pour marquer un texte sur lequel on veut insister. Son utilisation se traduit généralement par un affichage en italique, cependant cette balise ne doit pas être utilisée à des fins stylistiques.
+
+Pour mettre une partie de texte en italique à des fins de pure présentation, il faudra utiliser la propriété CSS font-style.

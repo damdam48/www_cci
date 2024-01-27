@@ -1,0 +1,15 @@
+<?php
+    // requete SELECT 
+        try { 
+            $sql="SELECT * FROM users;";
+            $stmt = $bdd->prepare($sql);
+            $stmt->execute();
+        } catch (Exception $e) {print "Erreur ! " . $e->getMessage() . "<br/>";}
+
+    // Boucler les resultats
+        while($results=$stmt->fetch(PDO::FETCH_ASSOC)) {
+            // print_r($results);
+            echo $results ['name'] . ' ' .$results['first_name'];
+            echo '<hr>';
+        }
+?>

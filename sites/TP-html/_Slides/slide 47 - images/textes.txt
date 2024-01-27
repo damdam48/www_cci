@@ -1,0 +1,18 @@
+Les images
+
+Les images pour le web sont en mode RVB et résolution de 72 dpi, celles pour le print en mode CMJN et résolution de 300dpi.
+
+Les formats utilisés sont :
+
+    Le format jpg : il permet de compresser le poids de l'image tout en gardant une bonne qualité
+    Le format png : il gère la transparence, a un très bon taux de compression tout en conservant une bonne qualité d'image.
+    Le format gif : c'est un ancien format d'image, qui a l'avantage de permettre l'animation d'images, mais il ne gère que 256 couleurs.
+
+L'élément HTML img permet d'insérer une images en tant que contenu dans une page HTML. L'insertion d'une image comme élément de décoration devra être effectué en CSS.
+
+Cet élément utilise plusieurs attributs :
+
+L'attribut src : cet attribut est obligatoire et contient le chemin de l'image que l'on souhaite afficher.
+L'attribut alt : cet attribut, bien que non obligatoire, est recommandé pour des raisons d'accessibilité et de référencement naturel. Il contient une description textuelle de l'image.
+L'attribut title : il n'a pas vocation à remplacer l'attribut alt et si les 2 attributs sont définis il est conseillé d'utiliser des valeurs différentes. Il sert à afficher une infobulle au passage de la souris sur l'image.
+Les attributs width et height : ils permettent d'indiquer les dimensions intrinsèques de l'image pour s'assurer qu'elle occupe un espace stable lors du chargement.

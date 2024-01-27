@@ -1,0 +1,87 @@
+// Je réflechi en mobile-first : je code d'abord pour les mobiles, puis je fais des changements pour les écrans plus grand que 960px
+section#footer {
+  width: 100%;
+  min-width: 350px;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+
+  @media screen and (min-width: 960px) {
+    max-width: 960px; // La taille restera bloquée à 960px max
+  }
+
+  .container-footer {
+    width: 100%;// N'est pas en flex par defaut
+
+    @media screen and (min-width: 960px) {
+      display: flex; //Je  flex en dessus de 960 px pour qu'il y ait un bloc à droite et un à gauche
+    }
+  }
+
+  // Le premier bloc qui sera à gauche au dessus de 960px...
+  .footer-first {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $border-color  ;
+
+    @media screen and (min-width: 960px) {
+      width: 35%; //... et prendra 35% du parent
+      padding-right: 2rem;
+      border-bottom: none;
+    }
+  }
+
+  .footer-second {
+    @media screen and (min-width: 960px) {
+      width: 65%;//Celui de droite fera 65%
+    }
+
+    // Par defaut les inputs sont les uns en dessous des autres...
+    .form-inputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      // ...sauf Si l'ecran est supérieur à 600px (même pour les mobile, je veux deux inputs par ligne)...
+      @media (min-width: 600px) {
+        flex-direction: row;
+      }
+    }
+
+    input {
+      // ... s'il sont deux, je regle leur taille
+      @media (min-width: 600px) {
+        width: 100%;
+        margin: 0 1.5rem 1rem 0;
+        box-sizing: border-box;
+
+        &:last-child {
+          margin-right: 0; //Pas de marge à droit pour le dernier input
+        }
+      }
+
+      // Je fixe la taille du bouton qui serait bloqué à 50% par la déclaration width : 50% de la ligne 50
+      &[type="submit"] {
+        width: auto;
+      }
+    }
+
+    // Le textarea doit prendre toute la largeur et faire une hauteur minimum, quelque soit l'écran
+    .form-textarea {
+      width: 100%;
+
+      textarea {
+        width: 100%;
+        min-height: 5rem;
+      }
+    }
+
+  }
+
+  .footer-copyright {
+    border-top: 1px solid $border-color;
+    padding-top: 2rem;
+    padding-bottom: .5rem;
+  }
+
+}

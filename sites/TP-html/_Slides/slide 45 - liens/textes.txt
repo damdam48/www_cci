@@ -1,0 +1,23 @@
+Les hyperliens
+
+L'élément HTML a (pour anchor) définit un hyperlien vers un autre endroit de la même page, vers une autre page du site web ou vers une page externe sur le Web.
+
+Pour créer un lien externe, on va devoir indiquer l’URL complète de la destination du lien.
+
+L'élément a utilise plusieurs attributs :
+
+  L'attribut href : cet attribut est obligatoire et contient l'URL de destination.
+  L'attribut title : il sert à afficher une infobulle au passage de la souris sur l'hyperlien.
+  L'attribut target : il permet de choisir où va s'ouvrir la page de destination. Un attribut target="_blank" spécifie que le lien s'ouvre dans un nouvel onglet ou une nouvelle page.
+
+Les types d'hyperliens
+
+Il existe différents types d'hyperliens :
+
+  Un site internet : Google
+  Une autre page du site internet : Nous contacter
+  Une adresse email : Contact
+  Un numéro de téléphone : 06 11 22 33 44
+  Une ancre sur la page : haut de la page. Ce type de lien est souvent utilisé dans la navigation sur les sites internet one-page ou pour revenir en haut de la page.
+
+Il est aussi possible de mettre un hyperlien sur une image :

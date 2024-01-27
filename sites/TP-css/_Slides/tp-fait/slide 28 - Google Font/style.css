@@ -1,0 +1,16 @@
+h1 {
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+p {
+    font-family: 'Comic Neue', cursive;
+}
+
+div > p {
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+}
+div:last-child p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+

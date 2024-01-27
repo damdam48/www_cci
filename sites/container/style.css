@@ -1,0 +1,21 @@
+.container {
+    width: 600px;
+    margin-right: auto;
+    padding: 0;
+    min-height: 600px;
+    margin-left: auto;
+    background-color: rgb(9, 60, 9);
+}
+
+.container > div {
+    background-color: red;
+    width: 30%;
+    display: inline-block;
+    margin-bottom: 8px;
+    margin-right: calc(5% - 4px)
+    /* les 4.5px c'est les pixels de firefox */
+}
+
+.container > div:nth-child(3n) {
+    margin-right: 0;
+}

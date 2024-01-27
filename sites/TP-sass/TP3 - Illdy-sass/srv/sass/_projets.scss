@@ -1,0 +1,29 @@
+#projets {
+    border: 5px solid;
+    border-color: red;
+
+    display: flex;
+    display: block;
+    height: 700px;
+    background-color: $c-bg-grey;
+
+    h2 {
+        margin-top: 40px;
+    }
+
+    div {
+        border: 5px solid;
+        border-color: aqua;
+
+        display: inline-block;
+        width: 100%;
+        margin-top: 40px;
+        // text-align: left;
+        
+
+        img {
+            max-width: 24%;
+            height: auto;
+        }
+    }
+}

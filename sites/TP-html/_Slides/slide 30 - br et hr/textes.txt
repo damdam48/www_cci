@@ -1,0 +1,22 @@
+Les éléments br et hr
+La balise br
+
+L'élément HTML br crée un saut de ligne (un retour chariot) dans le texte. Il s'avère utile lorsque les sauts de ligne ont une importance (par exemple lorsqu'on écrit une adresse ou un poème).
+
+Un retour à la ligne
+  dans le code html
+  ne sera pas affiché visuellement dans le navigateur.
+
+Il faudra utiliser la balise br :
+Un retour à la ligne
+avec la balise br
+s'affiche correctement dans le navigateur web.
+
+La balise hr
+
+L'élément HTML hr représente un changement de thématique entre des éléments de contenu. Visuellement, son utilisation se traduit par l'affichage d'une ligne horizontale.
+Exemple
+
+Le HTML est un langage utilisé pour structurer le contenu d'une page web.
+
+Le CSS sert à mettre en forme des éléments en leur appliquant des styles.

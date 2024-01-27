@@ -1,0 +1,49 @@
+// Mise en forme un peu étrange
+.social {
+  line-height: 1.2rem;
+
+  a {
+    display: inline-block;
+    height: 1.2rem; // Identique à la hauteur de ligne du parent
+    width: 1.2rem;
+    background-size: .8rem; // Plus petite que la boite
+    background-position: center left; // Centré verticalement et aligné à gauche
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    position: relative; // Pour positionner le pseudo élément after en absolute
+
+    &::after {
+      content : "";
+      display: block; // Permet de fixer la hauteur et la largeur
+      width: 1px; //Fait un trait de 1px...
+      background: $grey; //... avec la couleur $grey
+      height: .8rem; // De la même taille que l'image de background du parent
+      position: absolute; 
+      top: .2rem; // je le décale de .2rem par rapport au top, ce qui me centre le block
+      right: 0rem; // Je le colle à la boite
+      margin: 0;
+      padding: 0;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    &.fb {
+      background-image: url('img/fb.png');
+    }
+    &.tw {
+      background-image: url('img/tw.png');
+    }
+    &.be {
+      background-image: url('img/be.png');
+    }
+
+    span {
+      display: none; //Empêche d'afficher le nom des reseau sociaux
+    }
+  }
+}

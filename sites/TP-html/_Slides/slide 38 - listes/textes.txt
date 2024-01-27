@@ -1,0 +1,27 @@
+Les listes
+
+Les listes HTML vont nous permettrent d'afficher le contenu sous forme de liste à puces ou de listes numérotées.
+
+Il existe 2 grands types de liste en HTML : les listes non-ordonnées et les listes ordonnées.
+L'élément ul : les listes non ordonnées
+
+Elles sont utilisées si l'ordre dans la liste n'a aucune importance. Elles sont représentées par l'élément HTML ul (pour unordened list) ainsi que des éléments li, chaque balise li représentant un élément de la liste. Visuellement, elles se présentent sous forme de listes à puces.
+Exemple
+
+Chaque jour, je mange :
+
+Des fruits
+Des légumes
+De la viande, du poisson ou des oeufs
+Des féculents : pâtes, riz ou pommes de terre
+
+L'élément ol : les listes ordonnées
+
+Elles sont utilisées si l'ordre dans la liste a de l'importance. Elles sont représentées par l'élément HTML ol (pour ordened list) ainsi que des éléments li, chaque balise li représentant un élément de la liste. Visuellement, elles se présentent sous forme de liste numérotée.
+Exemple
+
+Chaque jour, je prends 3 repas :
+
+Le matin : le petit-déjeuner
+Le midi : le déjeuner
+Le soir : le dîner

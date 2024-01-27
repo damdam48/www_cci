@@ -1,0 +1,52 @@
+header{
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(../../public/images/header.jpg);
+    height: 950px;
+    border: 5px solid;
+    border-color: red;
+
+    .nav{
+        display: inline-block;
+        border: 5px solid;
+        border-color: green;
+        height: 100px;
+    }
+
+    img{
+        display: block;
+        border: 5px solid;
+        border-color: blue;
+    }
+
+    ul{
+        border: 5px solid;
+        border-color: aqua;
+    }
+
+     li {
+        list-style: none;
+        display: inline-block;
+
+    }
+
+    .mid {
+        display: block;
+        border: 5px solid;
+        border-color: aqua;
+        height: 50%;
+        width: 50%;
+        margin-top: 22%;
+
+        .p1 {
+            font-size: 40px;
+            color: $c-text;
+        }
+
+        .p2 {
+            color: $c-text;
+        }
+
+    }
+
+}

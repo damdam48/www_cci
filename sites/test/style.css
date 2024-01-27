@@ -1,0 +1,87 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    color:rgb(126, 42, 182);
+}
+
+h2 {
+    color:rgb(52, 104, 201);
+}
+
+h3 {
+    color: rgb(8, 92, 92);
+}
+
+.rounded {
+    border-radius: 30px;
+}
+
+.padding {
+    padding: 0px 100px;
+}
+
+.margin {
+    margin: 0px 300px;
+}
+
+/* .box-shadow {
+    box-shadow: 10px 5px 5px;
+} */
+
+input {
+    border-radius: 30px;
+    padding: auto;
+    margin-bottom: 5px;
+    /* text-align: center; */
+}
+
+input[type=submit] {
+    background-color: brown;
+    padding: 10px 10px;
+}
+
+/* placeholder */
+
+/* label {
+    cursor: pointer;
+} */
+
+.cursor {
+    cursor: pointer;
+}
+
+/* .good {
+    color: aquamarine;
+    font-weight: bold;
+    text-decoration: underline;
+} */
+
+.no_good {
+    color: rgb(156, 33, 33);
+    text-decoration:line-through;
+}
+
+div {
+    /* color: darkmagenta; */
+    color: blue;
+    border: 5px solid currentcolor ;
+}
+
+.good > input {
+    /* width: 100px;
+    height: 100px;
+    background-color: red; */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    border-radius: 100%;
+}
+
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}

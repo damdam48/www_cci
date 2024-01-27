@@ -1,0 +1,24 @@
+// J'utilise la mixin headings qui me génère automatiquement h1, h2, h3, h4, h5, h6
+@include headings() {
+  color: $white;
+  font-family: $ft-headings;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+p, a, address, input, textarea {
+  font-family: $ft-main;
+  color: $grey;
+  letter-spacing: 0.01rem;
+  font-size: .7rem;
+  line-height: 1.15rem;
+  font-weight: 300;
+}
+
+input::placeholder, textarea::placeholder, input[type="submit"], input[type="reset"] {
+  text-transform: capitalize;
+}
+
+p, a, address {
+  margin-bottom: 1.8rem;
+}

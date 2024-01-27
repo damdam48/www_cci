@@ -1,0 +1,87 @@
+/* 
+LES COULEURS
+ */
+
+// Couleur de fond
+$bgcolor-dark : rgb(63, 63, 63);
+// Couleurs de texte
+$color-primary-dark : lightgrey;
+$color-link-dark: rgb(88, 62, 88);
+$color-success : green;
+$color-error: red;
+$color-info: #ffa500;
+
+/* 
+LES DIMENSIONS
+ */
+$font-size : 16px;
+$line-height : 22px;
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $bgcolor-dark;
+}
+
+p {
+    color: $color-primary-dark;
+    $font-size: 12px;
+    $line-height: 30px;
+    font: #{$font-size}/#{$line-height};
+}
+
+#menu {
+    width: 100%;
+    height: 70px;
+
+    #sous-menu {
+        width: 700px;
+        height: 70px;
+        line-height: 70px;
+        margin: 0 auto;
+    }
+}
+
+#menu {
+    font: {
+        family: sans-serif;
+        size: 0.8rem;
+        style: italic;
+        weight: bolder;
+    }
+}
+
+a {
+    color: rgb(189, 132, 189);
+    text-decoration: none;
+
+    &:hover {
+        color: rgb(190, 49, 190);
+        text-decoration: underline;
+    }
+}
+
+.error {
+    width: 350px;
+    height: 150px;
+    color: $color-error;
+}
+
+.success {
+    @extend .error;
+    color: $color-success;
+}
+
+@mixin transform($transform) {
+    -ms-transform: $transform;
+    -webkit-transform: $transform;
+    -o-transform: $transform;
+    -moz-transform: $transform;
+    transform: $transform;
+}
+
+.btn {
+    @include transform(rotate(10deg));
+}

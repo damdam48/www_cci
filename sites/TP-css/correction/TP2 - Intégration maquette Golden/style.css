@@ -1,0 +1,202 @@
+@font-face {
+    font-family: wisdom;
+    src: url(font/WisdomScriptAJ.woff);
+}
+@font-face {
+    font-family: droidserif;
+    src: url(font/DroidSerif.ttf);
+}
+@font-face {
+    font-family: droiditalic;
+    src: url(font/DroidSerif-Italic.ttf);
+    font-style: italic;
+}
+@font-face {
+    font-family: droidbold;
+    src: url(font/DroidSerif-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: droidbolditalic;
+    src: url(font/DroidSerif-BoldItalic.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+
+:root {
+    /* font */
+    --font-golden: 'wisdom';
+    --font-nav: '','';
+    --font-welcom: '','';
+
+    /* color */
+    --color-golden: #fed136;
+    --color-btn: #fed136;
+    --color-icon: #fed136;
+
+    /* bg */
+    --bg-grey: #d0cfcf;
+    --bg-white: #ffffff;
+}
+
+
+/* font et color */
+body {
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+h2 {
+    font-size: 2.5rem;
+    font-family: 'droidbold';
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-family: 'droidbold';
+}
+
+.btn {
+    color: white;
+}
+
+/* bg */
+header {
+    min-height: 700px;
+    background-image: url(img/bg_header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#services {
+    background-color: var(--bg-white);
+}
+
+#portfolio {
+    background-color: var(--bg-grey);
+}
+
+#about {
+    background-color: var(--bg-white);
+}
+
+#partner {
+    background-color: var(--bg-grey);
+}
+
+#contact {
+    height: 500px;
+    background-image: url(img/map_contact.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* header */
+.golden {
+    position: relative;
+    font-family: var(--font-golden);
+    color: var(--color-golden);
+    left: -400px;
+}
+
+/* nav */
+.nav ul  li {
+    padding-left: 0;
+    display: inline;
+    position: relative;
+    top: 0px;
+    right: -400px;
+}
+
+.nav ul  li a {
+    color: white;
+    margin-left: .5rem;
+}
+
+/* welcome */
+#welcome p {
+    font-size: 50px;
+    color: white;
+}
+
+/* botton  */
+.btn {
+    display: inline-block;
+    padding: .5rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.btn.btn-yellow {
+    background-color: var(--color-btn);
+    border: 1px solid var(--color-btn);
+}
+
+
+/* icon  */
+.icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--color-icon);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+}
+
+/* background icon */
+.icon-commerce {
+    background-image: url(img/icons/icon-basket.png);
+
+}
+
+.icon-responsive {
+    background-image: url(img/icons/icon-laptop.png);
+
+}
+
+.icon-security {
+    background-image: url(img/icons/icon-locked.png);
+
+}
+
+/* flex container */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+/* card */
+.card {
+    width: 30%;
+    /* border-radius: 30px;
+    border: 2px solid red;
+    margin-bottom: 30px; */
+}
+
+.card-img img {
+    width: 100%;
+}
+
+.card-text {
+    /* height: 30%; */
+    background-color: var(--bg-white);
+}
+
+
+
+
+
+

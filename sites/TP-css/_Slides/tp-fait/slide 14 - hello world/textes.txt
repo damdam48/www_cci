@@ -1,0 +1,37 @@
+Hello World !
+
+L'expression Hello World se traduit littéralement en français par bonjour le monde. Ces termes sont traditionnellement utilisés, dans un but pédagogique, lors de l'écriture d'un premier programme informatique dans un langage.
+
+La tradition d'utiliser l'expression Hello World comme premier message de test a été initiée par lee livre « The C Programming Language » de Brian Kernighan et Dennis Ritchie.
+Ma première page sur le web
+Les langages
+
+Pour développer notre premier site internet, nous allons utiliser :
+
+Le HTML
+La CSS
+
+Les éditeurs de texte
+
+Nous avons le choix entre :
+
+Brackets
+Atom
+Sublime Text
+Dreamweaver
+
+Il faudra être capable de rechercher des informations sur un moteur de recherche comme Google.
+Mes premiers pas sur le web
+Le HTML
+Image HTML
+
+Le langage HTML a été créé en 1991. C'est un langage de balises qui va nous servir à structurer le contenu de notre page internet.
+
+Le contenu d'une page HTML est structuré en titres, sous-titres, paragraphes, listes, ...
+
+Le HTML va également nous permettre d'insérer des éléments comme des images et des hyperliens.
+
+La CSS
+Image CSS
+
+La CSS est un langage informatique utilisé pour mettre en forme les fichiers HTML ou XML. Créée en 1996, la CSS a l'avantage de permettre la séparation de la mise en forme et du contenu.

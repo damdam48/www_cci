@@ -1,0 +1,20 @@
+.btn {
+    border-radius: 5px;
+    height: 50px;
+    width: 200px;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+.btn-yellow {
+    background-color: $c-btn;
+    border-color: $c-btn;
+    color: $c-text;
+}
+
+.btn-trans {
+    background-color: rgba(255, 255, 255, 0.281);
+    border-color:  white;
+    border: 1px solid;
+    color: $c-text;
+}

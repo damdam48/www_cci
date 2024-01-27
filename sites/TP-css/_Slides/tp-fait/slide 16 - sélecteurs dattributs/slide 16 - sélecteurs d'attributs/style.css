@@ -1,0 +1,7 @@
+a {
+    color: lightgreen;
+    font-weight: bold;
+}
+a[target="_top"] {
+    font-size: 3rem;
+}

@@ -1,0 +1,13 @@
+body div {
+    color: black;
+    background-color: lightgrey;
+}
+
+p {
+    color: red;
+}
+
+#conteneur>p {
+    font-style: italic;
+}
+

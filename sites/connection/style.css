@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+}
+
+.connection {
+    display: block;
+}
+
+#mail {
+
+    margin-bottom: 10px;
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+#DeconnectBtn {
+    margin-top: 10px;
+}
+
+/* #server{
+    flex: auto;
+    width: 300px;
+
+} */

@@ -1,0 +1,33 @@
+Niveaux de titres
+Les éléments HTML h1 à h6 représentant les 6 niveaux de titres dans un document, le h1 étant le plus important et le h6 le moins important.
+
+Ils nous permettent de structurer notre texte, de la même manière que dans un document Word. L'utilisation des niveaux de titres facilite la lecture du texte ; les titres sont également importants pour optimiser le référencement naturel de la page web.
+
+Il existe 6 niveaux de titres, mais ce sont principalement les 3 premiers niveaux qui sont utilisés.
+
+Titre de niveau 2
+Le titre de niveau 2 est généralement utilisé comme titre de section ; nous verrons celà plus en détail avec les balises sémentiques.
+
+Titre de niveau 3
+Le titre de niveau 3 est généralement utilisé comme titre d'article ; nous verrons celà plus en détail avec les balises sémentiques.
+
+Titre de niveau 4
+Le titre de niveau 4 est moins utilisé.
+
+Titre de niveau 5
+Le titre de niveau 5 est peu utilisé.
+
+Titre de niveau 6
+Le titre de niveau 6 est très peu utilisé.
+
+Bonnes et mauvaises pratiques
+On évitera de sauter des niveaux de titre : on commence toujours par un titre de niveau 1, puis un titre de niveau 2, puis un titre de niveau 3 et ainsi de suite.
+
+Il est préférable d'avoir un seul titre de niveau 1 dans une page. En effet, les moteurs de recherchent peuvent estimer qu'on tente de les spammer et déclasser la page dans les résultats de recherche.
+
+Les niveaux inférieurs ne doivent pas être utilisés afin de réduire la taille de la police d'un titre : il faut pour cela utiliser la CSS.
+
+Sauter un niveau de titre intermédiaire constitue une mauvaise pratique : par exemple un titre de niveau 1, suivi d'un titre de niveau 3.
+
+Espaces dans le texte
+Vous pouvez ajouter autant d'espaces que vous le souhaitez dans un texte, ceux-ci ne seront jamais affichés visuellement dans votre navigateur.

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE dwwm_2023 [
+    <!ELEMENT dwwm_2023 (prenom+, nom, age, genre?, site_perso?, info_logement, info_dev)>
+    <!-- DTD pour la civilité -->
+    <!ELEMENT prenom (#PCDATA)>
+    <!ELEMENT nom (#PCDATA)>
+    <!ELEMENT age (#PCDATA)>
+    <!ELEMENT genre (masculin|feminin) >
+    <!ELEMENT masculin EMPTY >
+    <!ELEMENT feminin EMPTY >
+    <!ELEMENT site_perso (#PCDATA)>
+    <!-- DTD pour le lieu de vie-->
+    <!ELEMENT info_logement (nombre_de_personne, lieu)>
+    <!ELEMENT nombre_de_personne (nombre_adulte, nombre_enfant?)>
+    <!ELEMENT nombre_adulte (#PCDATA)>
+    <!ELEMENT nombre_enfant (#PCDATA)>
+    <!ELEMENT lieu (commune, type, surface, jardin)>
+    <!ELEMENT commune (#PCDATA)>
+    <!ELEMENT type (#PCDATA) >
+    <!ELEMENT surface (#PCDATA) >
+    <!ELEMENT jardin (jardin_presence, jardin_surface?) >
+    <!ELEMENT jardin_presence (#PCDATA)>
+    <!ELEMENT jardin_surface (#PCDATA) >
+    <!-- DTD pour les infos de dev -->
+    <!ELEMENT info_dev (langage_deja_utilise*, nombre_de_site_developpe?, exemple_de_site_developpe?)>
+    <!ELEMENT langage_deja_utilise (XML | HTML | CSS | SASS | LESSCSS | BOOTSTRAP | MATERIALIZE | FOUNDATION | JS | TYPESCRIPT | COFFEESCRIPT | JQUERY | ANGULARJS | NODEJS | REACTJS | VUEJS | ANGULAR | PHP | SYMFONY | LARAVEL | WORDPRESS )*>
+    <!ELEMENT XML EMPTY >
+    <!ELEMENT HTML EMPTY >
+    <!ELEMENT CSS EMPTY >
+    <!ELEMENT SASS EMPTY >
+    <!ELEMENT LESSCSS EMPTY >
+    <!ELEMENT BOOTSTRAP EMPTY >
+    <!ELEMENT MATERIALIZE EMPTY >
+    <!ELEMENT FOUNDATION EMPTY >
+    <!ELEMENT JS EMPTY >
+    <!ELEMENT TYPESCRIPT EMPTY >
+    <!ELEMENT COFFEESCRIPT EMPTY >
+    <!ELEMENT JQUERY EMPTY >
+    <!ELEMENT ANGULARJS EMPTY >
+    <!ELEMENT NODEJS EMPTY >
+    <!ELEMENT REACTJS EMPTY >
+    <!ELEMENT VUEJS EMPTY >
+    <!ELEMENT ANGULAR EMPTY >
+    <!ELEMENT PHP EMPTY >
+    <!ELEMENT SYMFONY EMPTY >
+    <!ELEMENT LARAVEL EMPTY >
+    <!ELEMENT WORDPRESS EMPTY >
+    <!ELEMENT nombre_de_site_developpe (#PCDATA) >
+    <!ELEMENT exemple_de_site_developpe (#PCDATA) >
+]>
+
+
+<dwwm_2023>
+    <prenom>Damien</prenom>
+    <nom>Vimard</nom>
+    <age>42</age>
+    <genre>
+        <masculin/>
+    </genre>
+    <site_perso>aucun</site_perso>
+    <info_logement>
+        <nombre_de_personne><1/></nombre_de_personne>
+        <nombre_adulte><1/></nombre_adulte>
+    <info_logement>
+    <lieu>
+        <commune>Unieux</commune>
+        <type>batiments</type>
+        <surface>120</surface>
+            <jardin>
+                <jardin_ptresence>non</jardin_ptresence>
+                <jardin_surface>0</jardin_surface>
+            </jardin>
+    </lieu>
+    <info_dev>aucune connaissance</info_dev>
+
+</dwwm_2023>

@@ -1,0 +1,12 @@
+// Reboot scss Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap-reboot';
+
+@import './mixins';
+@import './variables';
+@import './text-format';
+@import './utils';
+@import './components/title';
+@import './components/social';
+@import './components/btn';
+@import './components/forms';
+@import './layout/footer';

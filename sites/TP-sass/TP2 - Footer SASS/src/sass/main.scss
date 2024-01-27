@@ -1,0 +1,95 @@
+@import "../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
+
+@import "variables";
+@import "font";
+// @import "input"
+
+
+
+// body 
+body {
+    background-color: $bg;
+    color: $white;
+}
+
+.flex-contener {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    display: flex;
+}
+
+.flex-partie-left {
+    display: block;
+    width: 30%;
+}
+
+.flex-partie-right {
+    display: flex;
+    width: 70%;
+}
+
+#titre > * {
+    display: inline-block;
+}
+
+input {
+    width: calc(50% - 8px);
+}
+
+form {
+    width: 100%;
+
+}
+
+
+.flex-input {
+    width: 100%;
+    height: 25%;
+
+    div {
+    margin-top: 20px;
+    }
+
+    input {
+        background-color: $bg;
+        color: $white;
+        padding-left: 10px;
+    }
+}
+
+label {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+    color: $white;
+    padding-left: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+
+    input {
+        color: $Placeholder;
+        background-color: $bg;
+        width: 20%;
+        height: 40px;
+    }
+    :hover {
+        background-color: rgb(87, 84, 84);
+        color: black;
+    }
+}
+
+
+
+
+
+

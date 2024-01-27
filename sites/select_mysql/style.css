@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+}
+
+.card {
+    display: block;
+    margin-left: 45%;
+    border: 2px solid;
+    border-color: aqua;
+    width: 10%;
+    border-radius: 10px;
+}
+
+.user{
+    margin-top: 10px;
+}

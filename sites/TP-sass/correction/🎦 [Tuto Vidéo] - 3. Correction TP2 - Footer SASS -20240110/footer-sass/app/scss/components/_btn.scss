@@ -1,0 +1,24 @@
+.btn {
+  display: inline-block;
+  padding: $padding-s $padding-xl;
+  border: 1px solid;
+  @extend p;
+  transition: all .15s ease;
+
+  // Comme j'imagine d'autres couleurs, je mets une classe grey
+  &.btn-grey {
+    color: $white;
+    background: $darkgrey;
+    border-color: $darkgrey;
+
+    &:hover {
+      background-color: $grey;
+      color: $dark;
+    }
+  }
+
+  // Je prépare d'éventuels boutons plus larges
+  &.large {
+    padding: $padding $padding-xxl;
+  }
+}

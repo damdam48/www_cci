@@ -1,0 +1,39 @@
+body {
+    background-color: rgba(0, 0, 0, 0.557);
+}
+.social {
+    width: calc(88px * 4);
+    margin: 0px auto;
+    margin-top: 50%;
+    transform: translateY(-100%);
+
+}
+
+.social a {
+    width: 84px;
+    height: 84px;
+    display: inline-block;
+    background-image: url(social-sprite.png);
+    background-position-y: 84px ;
+    transition: all .15s;
+    border-radius: 20px;
+}
+a:hover {
+    background-position-y: calc(84px * 2);
+}
+
+a.facebook {
+    background-position-x: 0px;
+}
+
+a.twitter {
+    background-position-x: 252px;
+} 
+
+a.youtube { 
+    background-position-x: 84px;
+}
+
+a.linkedin { 
+    background-position-x: 588px;
+}

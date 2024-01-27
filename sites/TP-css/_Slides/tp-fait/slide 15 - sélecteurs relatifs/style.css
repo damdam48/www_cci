@@ -1,0 +1,36 @@
+/* Global */
+body, div {
+    color: black;
+    background-color: lightgrey;
+}
+
+/* texte  */
+#conteneur p {
+    color: red;
+}
+
+#conteneur > p {
+    font-weight: bold;
+}
+
+#conteneur > p {
+    color: green;
+}
+
+#conteneur h2+p {
+    text-transform: uppercase;
+}
+
+#conteneur code~p {
+    color: rgb(159, 111, 119);
+}
+
+body > div {
+    color: yellow;
+}
+
+/* mache pas */
+/* Les div qui suivent directement un titre de niveau 1 avec une bordure verte */
+div+h1 {
+    border: green;
+}

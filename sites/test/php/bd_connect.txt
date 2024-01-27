@@ -1,0 +1,10 @@
+<?php
+    try
+    {    
+        $bdd = new PDO("mysql:host=localhost;dbname=base", "root", "");
+        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(Exception $e)    {
+        die($erreur_sql='Erreur connect bd: '.$e->getMessage());
+    }
+?>
