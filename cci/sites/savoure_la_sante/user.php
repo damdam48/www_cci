@@ -16,7 +16,7 @@ page user_id <?php echo $_GET['user_id'];?><hr>
                         strip_tags($_POST['first_name']),
                         strip_tags($_POST['mail']),
                         strip_tags($_POST['pass']),
-                        strip_tags($_POST['img']),
+                        // $_FILES['avatar']['name'],
                         $_GET['user_id']
                     )
                 );
@@ -25,7 +25,7 @@ page user_id <?php echo $_GET['user_id'];?><hr>
             }
 
             //si image envoyer
-            if ($_FILES['avatar']['error'] == 0 ) {
+            if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0 ) {
                 $moveFiles = true;
 
                     // retrieve image info
