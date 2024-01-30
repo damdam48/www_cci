@@ -1,6 +1,7 @@
 <h1>user</h1>
+        
+user_id <?php echo $_GET['user_id'];?><hr>
 
-page user_id <?php echo $_GET['user_id'];?><hr>
 
 <?php
 
@@ -10,7 +11,7 @@ page user_id <?php echo $_GET['user_id'];?><hr>
             // echo $_FILES['avatar']['name'];
      // UPDATE
             try {
-                $sql = "UPDATE users SET name = ?, first_name = ?, mail = ?, pass = ?, img = ? WHERE user_id = ? ";
+                $sql = "UPDATE users SET name = ?, first_name = ?, mail = ?, pass = ? WHERE user_id = ? ";
                 $stmt = $bdd->prepare($sql);
                 $stmt->execute(
                     array(
@@ -18,7 +19,6 @@ page user_id <?php echo $_GET['user_id'];?><hr>
                         strip_tags($_POST['first_name']),
                         strip_tags($_POST['mail']),
                         strip_tags($_POST['pass']),
-                        $_FILES['avatar']['name'],
                         $_GET['user_id']
                     )
                 );
@@ -29,39 +29,40 @@ page user_id <?php echo $_GET['user_id'];?><hr>
             //si image envoyer
             if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0 ) {
                 $uploadImgOk = true;
+                        // print_r($_FILES);
 
                     // retrieve image info
                         //size Ko sizeMo, sizeMax
                         $sizeKo = $_FILES['avatar']['size'];
-                        echo ' sizeKo ' . $sizeKo . '<br>';
+                            // echo ' sizeKo ' . $sizeKo . '<br>';
 
                         $sizeMo = $sizeKo / 1000000;
-                        echo ' sizeMo ' . $sizeMo . '<br>';
+                            // echo ' sizeMo ' . $sizeMo . '<br>';
 
                         $sizeMaxMo = 3;
-
-                        echo 'Votre image pèse ' . $sizeMo . ' Mo<br>';
+                            // echo 'Votre image pèse ' . $sizeMo . ' Mo<br>';
 
                         if ($sizeMo > $sizeMaxMo) {
                         echo 'Le fichier est trop volumineux.<br>';
                         $uploadImgOk = false;
                         } else {
-                            echo 'OK';
+                            // echo 'OK';
                         }
 
                         $extension = $_FILES['avatar']['type'];
                         // Séparer les termes
                         $array = explode('/', $extension);
-                        print_r($array);
+                            // print_r($array);
+
                         $extension = $array[1];
-                        echo '<br>extension ' . $extension . '<br>';
+                            // echo '<br>extension ' . $extension . '<br>';
                     
                         $extensionAllowed = ['jpg', 'jpeg', 'png', 'bmp', 'gif', 'svg', 'webp','pdf'];
-                        print_r($extensionAllowed);
+                            // print_r($extensionAllowed);
                     
                         // test extension dans les extensions autorisées
                         if (in_array($extension, $extensionAllowed)) {
-                            echo 'extension OK<br>';
+                                // echo 'extension OK<br>';
                         }
                         else {
                             echo 'extension NO<br>';
@@ -72,8 +73,27 @@ page user_id <?php echo $_GET['user_id'];?><hr>
                             $folder = 'img/users/';
                             $newName = 'image_1';
                     
-                            if (@move_uploaded_file($_FILES['avatar']['tmp_name'] , $folder . $newName . '.' .$extension )) {
-                                echo 'upload ok';
+
+                            // if (@move_uploaded_file($_FILES['avatar']['tmp_name'] , $folder . $newName . '.' .$extension )) {
+                                if (@move_uploaded_file(str_replace(" ", "-", $_FILES['avatar']['tmp_name']) , $folder . str_replace(" ", "-", $_FILES['avatar']['name']))) {
+                                
+                                    // echo 'upload ok';
+
+                                // update table img
+                                try {
+                                    $sql = "UPDATE users SET img = ? WHERE user_id = ? ";
+                                    $stmt = $bdd->prepare($sql);
+                                    $stmt->execute(
+                                        array(
+                                            // $newName.'.'.$extension,
+                                            // $_FILES['avatar']['name'],
+                                            str_replace(" ", "-", $_FILES['avatar']['name']),
+                                            $_GET['user_id']
+                                        )
+                                    );
+                                } catch (Exception $e) {
+                                    print "Erreur ! " . $e->getMessage() . "<br/>";
+                                }
                             }
                             else {
                                 echo 'upload NO';
@@ -82,12 +102,6 @@ page user_id <?php echo $_GET['user_id'];?><hr>
                         else {
                             echo 'L\'image n\'a pas pu être envoyé';
                         }
-
-
-
-
-
-
             }
 
      // fin UPDATE
@@ -147,12 +161,15 @@ page user_id <?php echo $_GET['user_id'];?><hr>
         </div>
     </div>
 
+    <div class="form-group row col-sm-2 col-form-label mx-auto ">
+        <input type="file" name="avatar">
+        <!-- <input type="submit" name="upload"> -->
+    </div>
+
     <label for=""></label>
     <input type="submit" value="update" name="update" class="btn btn-primary">
     <br>
-    <input type="file" name="avatar">
-
-    <input type="submit" name="upload">
-
 
 </form>
+
+
