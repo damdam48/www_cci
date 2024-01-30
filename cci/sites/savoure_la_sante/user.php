@@ -2,7 +2,6 @@
         
 user_id <?php echo $_GET['user_id'];?><hr>
 
-
 <?php
 
         if (isset($_POST['update'])) {
@@ -164,6 +163,9 @@ user_id <?php echo $_GET['user_id'];?><hr>
     <div class="form-group row col-sm-2 col-form-label mx-auto ">
         <input type="file" name="avatar">
         <!-- <input type="submit" name="upload"> -->
+
+
+
     </div>
 
     <label for=""></label>
