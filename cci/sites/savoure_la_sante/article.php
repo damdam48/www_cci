@@ -1,24 +1,23 @@
-<h1>user</h1>
+<h1>article</h1>
         
-user_id <?php echo $_GET['user_id'];?><hr>
+article_id <?php echo $_GET['article_id'];?><hr>
 
 <?php
 
         if (isset($_POST['update'])) {
             // print_r($_POST);
+            // echo '<br>';
             // print_r($_FILES);
+            // echo '<br>';
             // echo $_FILES['avatar']['name'];
      // UPDATE
             try {
-                $sql = "UPDATE users SET name = ?, first_name = ?, mail = ?, pass = ? WHERE user_id = ? ";
+                $sql = "UPDATE article SET name = ? WHERE article_id = ? ";
                 $stmt = $bdd->prepare($sql);
                 $stmt->execute(
                     array(
                         strip_tags($_POST['name']),
-                        strip_tags($_POST['first_name']),
-                        strip_tags($_POST['mail']),
-                        strip_tags($_POST['pass']),
-                        $_GET['user_id']
+                        $_GET['article_id']
                     )
                 );
             } catch (Exception $e) {
@@ -69,7 +68,7 @@ user_id <?php echo $_GET['user_id'];?><hr>
                         }
                     
                         if ($uploadImgOk == true) {
-                            $folder = 'img/users/';
+                            $folder = 'img/article/';
                             $newName = 'image_1';
                     
 
@@ -80,14 +79,14 @@ user_id <?php echo $_GET['user_id'];?><hr>
 
                                 // update table img
                                 try {
-                                    $sql = "UPDATE users SET img = ? WHERE user_id = ? ";
+                                    $sql = "UPDATE article SET img = ? WHERE article_id = ? ";
                                     $stmt = $bdd->prepare($sql);
                                     $stmt->execute(
                                         array(
                                             // $newName.'.'.$extension,
                                             // $_FILES['avatar']['name'],
                                             str_replace(" ", "-", $_FILES['avatar']['name']),
-                                            $_GET['user_id']
+                                            $_GET['article_id']
                                         )
                                     );
                                 } catch (Exception $e) {
@@ -109,10 +108,10 @@ user_id <?php echo $_GET['user_id'];?><hr>
 
     // REQUEST select
         try { 
-            $sql="SELECT * FROM users WHERE user_id = ?";
+            $sql="SELECT * FROM article WHERE article_id = ?";
             $stmt = $bdd->prepare($sql);
             $stmt->execute( array(
-                $_GET['user_id']
+                $_GET['article_id']
             ) );
             } catch (Exception $e) {print "Erreur ! " . $e->getMessage() . "<br/>";}
         
@@ -123,7 +122,7 @@ user_id <?php echo $_GET['user_id'];?><hr>
 
         if (empty($results)) {
 
-            echo 'nous n\'avons pas trouvé cet utilisateur. <br><a href="index.php?p=users.php"> Revenir a la page utilisateurs</a>';
+            echo 'nous n\'avons pas trouvé cet utilisateur. <br><a href="index.php?p=articles.php"> Revenir a la page utilisateurs</a>';
         }
 
     // end REQUEST select
@@ -139,26 +138,26 @@ user_id <?php echo $_GET['user_id'];?><hr>
         </div>
     </div>
 
-    <div class="form-group row">
+    <!-- <div class="form-group row">
         <label for="first_name" class="col-sm-2 col-form-label w-auto mx-auto">first_name</label>
         <div class="col-sm-10">
             <input type="text" name="first_name" value="<?php echo $results['first_name'] ?>" class="form-control" placeholder="first_name"></input>
     </div>
-    </div>
+    </div> -->
 
-    <div class="form-group row">
+    <!-- <div class="form-group row">
         <label for="mail" class="col-sm-2 col-form-label w-auto mx-auto">mail</label>
         <div class="col-sm-10">
             <input type="mail" name="mail" value="<?php echo $results['mail']; ?>" class="form-control" placeholder="mail"></input>
         </div>
-    </div>
+    </div> -->
 
-    <div class="form-group row">
+    <!-- <div class="form-group row">
         <label for="pass" class="col-sm-2 col-form-label w-auto mx-auto">password</label>
         <div class="col-sm-10">
             <input type="password" name="pass" value="<?php echo $results['pass']; ?>" class="form-control" placeholder="password"></input>
         </div>
-    </div>
+    </div> -->
 
     <div class="form-group row col-sm-2 col-form-label mx-auto ">
         <input type="file" name="avatar">

@@ -1,1 +1,56 @@
 <h1>Articles</h1>
+
+<div class="row">
+
+    <?php
+        try { 
+            $sql="SELECT * FROM article";
+            $stmt = $bdd->prepare($sql);
+            $stmt->execute( array(
+
+            ) );
+            } catch (Exception $e) {print "Erreur ! " . $e->getMessage() . "<br/>";}
+        
+        // construct results
+            while($results=$stmt->fetch(PDO::FETCH_ASSOC)) {
+                // print_r($results);
+                // echo '<br>'; ?>
+            
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3 col-xxl-2 border rounded mx-auto ">
+                <div class="card">
+                    <div class="card-header">
+                        <?php echo $results['name'];?>
+                    </div>
+                    <div class="card-body my-auto">
+                        <div>
+                            <?php
+                                // img si existe
+                                // echo $results['img'];
+                                $folder = 'img/article/';
+                                // print_r(getimagesize($folder . $results['img']));
+
+                                if (@is_array(getimagesize($folder . $results['img']))) {
+                                    // echo 'image OK';
+                                    echo '<img src="'.$folder .$results['img']. '" class="w-75" alt=""> ';
+                                    echo getimagesize($folder . $results['img'])[0];
+                                    echo 'X';
+                                    echo getimagesize($folder . $results['img'])[0].' px';
+
+
+                                }
+                                else {
+                                    // echo 'no image';
+                                    echo '<img src="img/img_icon.png" class="w-75">';
+                                }
+                            ?>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <a href="index.php?p=article.php&article_id=<?php echo $results['article_id']; ?>">Aller a la page</a>
+                    </div>
+                </div>
+            </div>
+
+    <?php }?>
+</div>
