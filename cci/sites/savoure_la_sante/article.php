@@ -166,8 +166,12 @@ article_id <?php echo $_GET['article_id'];?><hr>
     </div> -->
 
     <div class="form-group row col-sm-2 col-form-label mx-auto ">
-        <input type="file" name="avatar">
-        <!-- <input type="submit" name="upload"> -->
+        Déposer votre image ici
+</div>
+        <input type="file" name="avatar" id="imgDrop" class="form-control">
+
+        <div id="imgDropTxt"> </div>
+
 
 
 
@@ -197,13 +201,43 @@ article_id <?php echo $_GET['article_id'];?><hr>
                     echo $categories['article_cat_id']==$results['article_cat']?' selected':'';
                     echo '>' . $categories['article_cat_name'].'</option>';
                 } ?>
-            </select>
-
-
-
-        
+            </select>        
 </form>
 
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#imgDrop').change(function () {
+            console.log('imgDrop changed')
+            console.log($(this))
+
+            file = this.files[0]
+                console.log(file)
+
+            size = file.size
+                console.log('Taille: ' + size)
+
+            sizeMo = size / 1000000
+                console.log('Taille Mo : ' + sizeMo)
+
+            type = file.type
+                console.log('Type : ' + type)
+
+            name = file.name
+                console.log('name : ' + name)
+            
+            msg = 'Vous allez télécharger le fichier : <br>' + name + '</b>'
+            msg =  msg + '<br>Dont la taille est ' + sizeMo
+            msg =  msg + '<br>et l\'extension est ' + type
+
+            $('#imgDropTxt').html(msg)
+            
+        })
+    })
+</script>
 
 
 

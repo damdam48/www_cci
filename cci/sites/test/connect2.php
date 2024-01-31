@@ -8,9 +8,7 @@ session_start
     <title>Document</title>
 </head>
 <body>
-    se connecter a la base de donner
 
-    vériffier si les données sont soumises avec 
         if (!empty($_POST))
 
     si (if) le bouton est préssé
