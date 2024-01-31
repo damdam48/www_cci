@@ -23,9 +23,6 @@
         }
     }
     // fin create
-    $last_id = $dbb->lastInsertId();
-    echo 'nous avons inséré l\'ID n : ' .$last_id;
-    $newName = 'article_' . $last_id;
     ?>
 
 
