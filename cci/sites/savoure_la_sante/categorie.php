@@ -1,6 +1,6 @@
-<h1>article</h1>
+<h1>categorie</h1>
         
-article_id <?php echo $_GET['article_id'];?><hr>
+categorieid <?php echo $_GET['categorie_id'];?><hr>
 
 <?php
 
@@ -12,13 +12,13 @@ article_id <?php echo $_GET['article_id'];?><hr>
             // echo $_FILES['avatar']['name'];
      // UPDATE
             try {
-                $sql = "UPDATE article SET name = ?, article_cat = ? WHERE article_id = ? ";
+                $sql = "UPDATE categorie SET name = ?, categorie_cat = ? WHERE categorie_id = ? ";
                 $stmt = $bdd->prepare($sql);
                 $stmt->execute(
                     array(
                         strip_tags($_POST['name']),
-                        strip_tags($_POST['article_cat']),
-                        $_GET['article_id']
+                        strip_tags($_POST['categorie_cat']),
+                        $_GET['categorie_id']
                     )
                 );
             } catch (Exception $e) {
@@ -69,7 +69,7 @@ article_id <?php echo $_GET['article_id'];?><hr>
                         }
                     
                         if ($uploadImgOk == true) {
-                            $folder = 'img/article/';
+                            $folder = 'img/categorie/';
                             $newName = 'image_1';
                     
 
@@ -80,14 +80,14 @@ article_id <?php echo $_GET['article_id'];?><hr>
 
                                 // update table img
                                 try {
-                                    $sql = "UPDATE article SET img = ? WHERE article_id = ? ";
+                                    $sql = "UPDATE categorie SET img = ? WHERE categorie_id = ? ";
                                     $stmt = $bdd->prepare($sql);
                                     $stmt->execute(
                                         array(
                                             // $newName.'.'.$extension,
                                             // $_FILES['avatar']['name'],
                                             str_replace(" ", "-", $_FILES['avatar']['name']),
-                                            $_GET['article_id']
+                                            $_GET['categorie_id']
                                         )
                                     );
                                 } catch (Exception $e) {
@@ -109,10 +109,10 @@ article_id <?php echo $_GET['article_id'];?><hr>
 
     // REQUEST select
         try { 
-            $sql="SELECT * FROM article WHERE article_id = ?";
+            $sql="SELECT * FROM categorie WHERE categorie_id = ?";
             $stmt = $bdd->prepare($sql);
             $stmt->execute( array(
-                $_GET['article_id']
+                $_GET['categorie_id']
             ) );
             } catch (Exception $e) {print "Erreur ! " . $e->getMessage() . "<br/>";}
         
@@ -123,7 +123,7 @@ article_id <?php echo $_GET['article_id'];?><hr>
 
         if (empty($results)) {
 
-            echo 'nous n\'avons pas trouvé cet utilisateur. <br><a href="index.php?p=articles.php"> Revenir a la page utilisateurs</a>';
+            // echo 'nous n\'avons pas trouvé cet utilisateur. <br><a href="index.php?p=categories.php"> Revenir a la page utilisateurs</a>';
         }
 
 
@@ -182,20 +182,20 @@ article_id <?php echo $_GET['article_id'];?><hr>
 
     <?php
 
-        // article_cat 
+        // categorie_cat 
             try { 
-                $sql="SELECT * FROM article_cat";
+                $sql="SELECT * FROM categorie_cat";
                 $stmt_cats = $bdd->prepare($sql);
                 $stmt_cats->execute();
                 } catch (Exception $e) {print "Erreur ! " . $e->getMessage() . "<br/>";}
 
             ?>
-            <select name="article_cat" class="form-control w-auto mx-auto text-center">
+            <select name="categorie_cat" class="form-control w-auto mx-auto text-center">
                 <?php while ($categories=$stmt_cats->fetch(PDO::FETCH_ASSOC)) {
                     // print_r($categories);
-                    echo '<option value="'.$categories['article_cat_id'].'"'; 
-                    echo $categories['article_cat_id']==$results['article_cat']?' selected':'';
-                    echo '>' . $categories['article_cat_name'].'</option>';
+                    echo '<option value="'.$categories['categorie_cat_id'].'"'; 
+                    echo $categories['categorie_cat_id']==$results['categorie_cat']?' selected':'';
+                    echo '>' . $categories['categorie_cat_name'].'</option>';
                 } ?>
             </select>
 

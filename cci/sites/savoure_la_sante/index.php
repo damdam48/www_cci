@@ -36,6 +36,19 @@
             // echo 'il y a ' . $usersNB . ' article';
             
 	?>
+<?php
+        try { 
+            $sql="SELECT categorie_id FROM categorie";
+            $stmt = $bdd->prepare($sql);
+            $stmt->execute( array(
+
+            ) );
+            } catch (Exception $e) {print "Erreur ! " . $e->getMessage() . "<br/>";}
+        
+            $name_catNB = $stmt ->rowCount();
+            // echo 'il y a ' . $usersNB . ' article';
+            
+	?>
 
     <header>
     <!-- start header -->
@@ -46,6 +59,7 @@
             <a href="index.php?p=home.php">Home</a>
             <a href="index.php?p=Articles.php">Articles (<?php echo $articleNB; ?>)</a>
             <a href="index.php?p=Users.php">Users (<?php echo $usersNB; ?>)</a>
+            <a href="index.php?p=categories.php">Categories (<?php echo $name_catNB; ?>)</a>
             <hr>
         </div>
 

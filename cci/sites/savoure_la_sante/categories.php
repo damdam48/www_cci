@@ -1,31 +1,34 @@
-<h1>Articles</h1>
+<h1>Categories</h1>
 
-<div class="row">
+<div class="">
 
 
     <?php
     // create
     if (isset($_POST['create'])) {
-        print_r($_POST);
-        echo '<hr>';
+        // print_r($_POST);
+        // echo '<hr>';
 
         try {
-            $sql = "INSERT INTO article SET name = ?, article_cat = ? ";
+            $sql = "INSERT INTO categorie SET name = ? ";
             $stmt = $bdd->prepare($sql);
             $stmt->execute(
                 array(
                     strip_tags($_POST['name']),
-                    strip_tags($_POST['article_cat']),
                 )
             );
         } catch (Exception $e) {
             print "Erreur ! " . $e->getMessage() . "<br/>";
         }
+        $last_id = $bdd->lastInsertId();
+        echo 'nous avons inséré l\'ID n : ' .$last_id;
+        $newName = 'categorie_' . $last_id;
+        echo '<br>';  
+        echo 'l\'image s\'appelera ' .$newName; 
     }
     // fin create
-    $last_id = $dbb->lastInsertId();
-    echo 'nous avons inséré l\'ID n : ' .$last_id;
-    $newName = 'article_' . $last_id;
+
+
     ?>
 
 
@@ -34,8 +37,8 @@
 
 
     <?php
-    $lastId = $bdd->lastInsertId();
-    echo '<p>You have insert the user id :' . $lastId . '</p>';
+    // $lastId = $bdd->lastInsertId();
+    // echo '<p>You have insert the user id :' . $lastId . '</p>';
 
     //si image envoyer
     if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
@@ -80,7 +83,7 @@
         }
 
         if ($uploadImgOk == true) {
-            $folder = 'img/article/';
+            $folder = 'img/categorie/';
             $newName = 'image_1';
 
 
@@ -91,14 +94,14 @@
     
                 // update table img
                 try {
-                    $sql = "UPDATE article SET img = ? WHERE article_id = ? ";
+                    $sql = "UPDATE categorie SET img = ? WHERE categorie_id = ? ";
                     $stmt = $bdd->prepare($sql);
                     $stmt->execute(
                         array(
                             // $newName.'.'.$extension,
                             // $_FILES['avatar']['name'],
                             str_replace(" ", "-", $_FILES['avatar']['name']),
-                            $_GET['article_id']
+                            $_GET['categorie_id']
                         )
                     );
                 } catch (Exception $e) {
@@ -122,7 +125,7 @@
 
     // array_cats
     try {
-        $sql = "SELECT * FROM article_cat";
+        $sql = "SELECT * FROM categorie_cat";
         $stmt_cats = $bdd->prepare($sql);
         $stmt_cats->execute();
     } catch (Exception $e) {
@@ -134,14 +137,14 @@
     
         // $categoriesArray [id de la catégori ] = nom de la catégorie
     
-        $categoriesArray[$categories['article_cat_id']] = $categories['article_cat_name'];
+        $categoriesArray[$categories['categorie_cat_id']] = $categories['categorie_cat_name'];
     }
 
     // echo '<hr>';
     // echo $categoriesArray[1];
     
     try {
-        $sql = "SELECT * FROM article";
+        $sql = "SELECT * FROM categorie";
         $stmt = $bdd->prepare($sql);
         $stmt->execute(
             array(
@@ -164,11 +167,11 @@
                 </div>
                 <div class="card-body my-auto">
                     <div>
-                        <?php echo $categoriesArray[$results['article_cat']]; ?>
+                        <?php echo $categoriesArray[$results['categorie_cat']]; ?>
                         <?php
                         // img si existe
                         // echo $results['img'];
-                        $folder = 'img/article/';
+                        $folder = 'img/categorie/';
                         // print_r(getimagesize($folder . $results['img']));
                     
                         if (@is_array(getimagesize($folder . $results['img']))) {
@@ -186,7 +189,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <a href="index.php?p=article.php&article_id=<?php echo $results['article_id']; ?>">Aller a la page</a>
+                    <a href="index.php?p=categorie.php&categorie_id=<?php echo $results['categorie_id']; ?>">Aller a la page</a>
                 </div>
             </div>
         </div>
@@ -203,10 +206,10 @@
     <div class="row">
         <div class="cal-12 cal-sm-6 cal-md-4 cal-xxl-2 my-1 mb-5 mx-auto">
             <div class="card-header text-center">
-                <h2>Nouvel Article</h2>
+                <h2>Nouvel categorie</h2>
             </div>
             <div class="card-body">
-                <input type="text" name="article_name" value="" id="" class="form-control text-center"
+                <input type="text" name="categorie_name" value="" id="" class="form-control text-center"
                     placeholder="Name">
 
                 <br>
@@ -222,17 +225,17 @@
 <hr>
 
 
-    <!-- imput cration d'article -->
+    <!-- imput cration d'categorie -->
     <form method="POST">
-        <h1>Creation d'article</h1>
-        <input class="article" type="text" name="name" value="" placeholder="name"></input>
+        <h1>Creation d'categorie</h1>
+        <input class="categorie" type="text" name="name" value="" placeholder="name"></input>
         <br>
-        <input class="article" type="submit" value="create" name="create">
+        <input class="categorie" type="submit" value="create" name="create">
 
         <!-- <input type="button" name="" value="Creer et aller a la fiche"> -->
 
 
-        <select name="article_cat" id="">
+        <select name="categorie_cat" id="">
             <?php foreach ($categoriesArray as $key => $value) { ?>
                 <option value="<?php echo $key; ?>">
                     <?php echo $value; ?>
@@ -241,4 +244,4 @@
             <?php } ?>
         </select>
     </form>
-    <!-- end imput cration d'article -->
+    <!-- end imput cration d'categorie -->
