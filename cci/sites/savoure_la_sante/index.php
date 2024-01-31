@@ -52,9 +52,9 @@
 
     <header>
     <!-- start header -->
-        <h1>Acceuil</h1>
+        <h1 class="text-center">Acceuil</h1>
 
-        <div id="menu">
+        <div id="menu" class="text-center" >
             <hr>
             <a href="index.php?p=home.php">Home</a>
             <a href="index.php?p=Articles.php">Articles (<?php echo $articleNB; ?>)</a>

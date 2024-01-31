@@ -12,12 +12,13 @@ categorieid <?php echo $_GET['categorie_id'];?><hr>
             // echo $_FILES['avatar']['name'];
      // UPDATE
             try {
-                $sql = "UPDATE categorie SET name = ?, categorie_cat = ? WHERE categorie_id = ? ";
+                $sql = "UPDATE categorie SET name = ?, categorie_cat = ?, dateUpdate = ? WHERE categorie_id = ? ";
                 $stmt = $bdd->prepare($sql);
                 $stmt->execute(
                     array(
                         strip_tags($_POST['name']),
                         strip_tags($_POST['categorie_cat']),
+                        date('Y-m-d H:i:s'),
                         $_GET['categorie_id']
                     )
                 );
