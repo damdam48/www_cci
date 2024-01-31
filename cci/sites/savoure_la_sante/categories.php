@@ -1,4 +1,5 @@
-<h1>Categories</h1>
+<h1 class="text-center">Categories</h1>
+<br>
 
 
 
@@ -10,21 +11,25 @@ if (isset($_POST['create'])) {
     // echo '<hr>';
 
     try {
-        $sql = "INSERT INTO categorie SET name = ? ";
+        $sql = "INSERT INTO categorie SET name = ?, categorie_cat = ?, dateCreate = ?, img = ?";
         $stmt = $bdd->prepare($sql);
         $stmt->execute(
             array(
                 strip_tags($_POST['name']),
+                strip_tags($_POST['categorie_cat']),
+                date('Y-m-d H:i:s'),
+                str_replace(" ", "-", $_FILES['avatar']['name']),
+                
             )
         );
     } catch (Exception $e) {
         print "Erreur ! " . $e->getMessage() . "<br/>";
     }
     $last_id = $bdd->lastInsertId();
-    echo 'nous avons inséré l\'ID n : ' . $last_id;
-    $newName = 'categorie_' . $last_id;
-    echo '<br>';
-    echo 'l\'image s\'appelera ' . $newName;
+    // echo 'nous avons inséré l\'ID n : ' . $last_id;
+    // $newName = 'categorie_' . $last_id;
+    // echo '<br>';
+    // echo 'l\'image s\'appelera ' . $newName;
 }
 // fin create
 
@@ -43,7 +48,8 @@ if (isset($_POST['create'])) {
 //si image envoyer
 if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
     $uploadImgOk = true;
-    // print_r($_FILES);
+    echo '<br>';
+    print_r($_FILES);
 
     // retrieve image info
     //size Ko sizeMo, sizeMax
@@ -93,20 +99,20 @@ if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
             // echo 'upload ok';
 
             // update table img
-            try {
-                $sql = "UPDATE categorie SET img = ? WHERE categorie_id = ? ";
-                $stmt = $bdd->prepare($sql);
-                $stmt->execute(
-                    array(
-                        // $newName.'.'.$extension,
-                        // $_FILES['avatar']['name'],
-                        str_replace(" ", "-", $_FILES['avatar']['name']),
-                        $_GET['categorie_id']
-                    )
-                );
-            } catch (Exception $e) {
-                print "Erreur ! " . $e->getMessage() . "<br/>";
-            }
+            // try {
+            //     $sql = "INSERT INTO categorie SET img = ? WHERE categorie_id = ? ";
+            //     $stmt = $bdd->prepare($sql);
+            //     $stmt->execute(
+            //         array(
+            //             // $newName.'.'.$extension,
+            //             // $_FILES['avatar']['name'],
+            //             str_replace(" ", "-", $_FILES['avatar']['name']),
+            //             // $_GET['categorie_id']
+            //         )
+            //     );
+            // } catch (Exception $e) {
+            //     print "Erreur ! " . $e->getMessage() . "<br/>";
+            // }
         } else {
             echo 'upload NO';
         }
@@ -140,8 +146,6 @@ while ($categories = $stmt_cats->fetch(PDO::FETCH_ASSOC)) {
     $categoriesArray[$categories['categorie_cat_id']] = $categories['categorie_cat_name'];
 }
 
-// echo '<hr>';
-// echo $categoriesArray[1];
 
 try {
     $sql = "SELECT * FROM categorie";
@@ -192,52 +196,42 @@ try {
                 </div>
                 <div class="card-footer">
                     <a href="index.php?p=categorie.php&categorie_id=<?php echo $results['categorie_id']; ?>">Aller a la
-                        page</a>
+                        categorie</a>
                 </div>
             </div>
         </div>
 
     <?php } ?>
 </div>
-
 <hr>
-<br>
-<div>
-    <div class="row">
-        <div class="cal-12 cal-sm-6 cal-md-4 cal-xxl-2 my-1 mb-5 mx-auto">
-            <div class="card-header text-center">
-                <h2>Nouvel categorie</h2>
-            </div>
-            <div class="card-body">
-                <input type="text" name="categorie_name" value="" id="" class="form-control text-center"
-                    placeholder="Name">
+
+<!-- imput cration d'categorie -->
+<div class="row">
+    <div class="cal-12 cal-sm-6 cal-md-4 cal-xxl-2 my-1 mb-5 mx-auto ">
+        <div class="card border-5">
+            <form method="POST" enctype="multipart/form-data">
+                <h1>Creation de nouvelle categorie</h1>
+                <input class="categorie" type="text" name="name" value="" placeholder="name"></input>
                 <br>
-            </div>
+                <br>
+                <div>
+                    <input type="file" name="avatar">
+                </div>
+                <br>
+                <select name="categorie_cat" id="">
+                    <?php foreach ($categoriesArray as $key => $value) { ?>
+                        <option value="<?php echo $key; ?>">
+                            <?php echo $value; ?>
+                        </option>
+                    <?php } ?>
+                </select>
+                <br><br>
+                <div class="card-footer">
+                <input class="categorie" type="submit" value="create" name="create">
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<div class="form-group row col-sm-2 col-form-label mx-auto ">
-    <input type="file" name="avatar">
-</div>
-
-<hr>
-
-
-<!-- imput cration d'categorie -->
-<form method="POST">
-    <h1>Creation d'categorie</h1>
-    <input class="categorie" type="text" name="name" value="" placeholder="name"></input>
-    <br>
-    <input class="categorie" type="submit" value="create" name="create">
-
-    <select name="categorie_cat" id="">
-        <?php foreach ($categoriesArray as $key => $value) { ?>
-            <option value="<?php echo $key; ?>">
-                <?php echo $value; ?>
-            </option>
-
-        <?php } ?>
-    </select>
-</form>
 <!-- end imput cration d'categorie -->
 </div>

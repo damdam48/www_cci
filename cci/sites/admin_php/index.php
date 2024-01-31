@@ -67,7 +67,7 @@
                                 else {
                                     echo'OK entrer';
                                     // UPDATE dateConnect
-
+                                    
                                     try { 
                                         $sql="UPDATE users SET dateConnect = ?, nbConnect = ? WHERE mail = ? ";
                                         $stmt = $bdd->prepare($sql);
