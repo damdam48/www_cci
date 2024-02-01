@@ -51,6 +51,20 @@
             
 	?>
 
+<?php
+        try { 
+            $sql="SELECT recette_id FROM recette";
+            $stmt = $bdd->prepare($sql);
+            $stmt->execute( array(
+
+            ) );
+            } catch (Exception $e) {print "Erreur ! " . $e->getMessage() . "<br/>";}
+        
+            $recette_catNB = $stmt ->rowCount();
+            // echo 'il y a ' . $usersNB . ' article';
+            
+	?>
+
     <header>
     <!-- start header -->
         <h1 class="text-center">Acceuil</h1>
@@ -61,6 +75,7 @@
             <a href="index.php?p=Articles.php">Articles (<?php echo $articleNB; ?>)</a>
             <a href="index.php?p=Users.php">Users (<?php echo $usersNB; ?>)</a>
             <a href="index.php?p=categories.php">Categories (<?php echo $name_catNB; ?>)</a>
+            <a href="index.php?p=recettes.php">recette (<?php echo $recette_catNB; ?>)</a>
             <hr>
         </div>
 
