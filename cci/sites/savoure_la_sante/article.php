@@ -176,6 +176,7 @@ article_id <?php echo $_GET['article_id'];?><hr>
 
     <label for=""></label>
     <input type="submit" id="updateBtn" value="update" name="update" class="btn btn-primary">
+    <input type="submit" id="btnNoImag" value="Envoyer sans image" name="update" class="btn btn-primary" style="display: none">
     <br>
 
 
@@ -228,6 +229,7 @@ article_id <?php echo $_GET['article_id'];?><hr>
                 console.log('tros lourd')
                 sizeMsg = 'Vote image est trop lourde'
                 sizeMsgColor = 'text-warning'
+                $('#imgDrop').val('')
                 uploadOk = false
             }
             else {
@@ -257,6 +259,7 @@ article_id <?php echo $_GET['article_id'];?><hr>
                 console.log('weigth ok')
                 typeMsg = 'Le format est pas bon'
                 typeMsgColor = 'text-warning'
+                $('#imgDrop').val('')
                 uploadOk = false
             }
 
@@ -274,20 +277,20 @@ article_id <?php echo $_GET['article_id'];?><hr>
 
             if (uploadOk) {
                 $('#updateBtn').fadeIn()
+                $('#btnNoImag').fadeOut()
+
             }
             else {
                 $('#updateBtn').fadeOut(1000)
+                $('#btnNoImag').fadeIn()
+                $('#imgDrop').val('')
             }
-
-            
         })
 
         // numbers_decimales.js
             number = 1.111
                 decimales = number.toFixed(2)
                 console.log(decimales)
-
-        
     })
 </script>
 
