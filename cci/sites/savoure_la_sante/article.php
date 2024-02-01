@@ -143,31 +143,9 @@ article_id <?php echo $_GET['article_id'];?><hr>
         </div>
     </div>
 
-
-    <!-- <div class="form-group row">
-        <label for="first_name" class="col-sm-2 col-form-label w-auto mx-auto">first_name</label>
-        <div class="col-sm-10">
-            <input type="text" name="first_name" value="<?php echo $results['first_name'] ?>" class="form-control" placeholder="first_name"></input>
-    </div>
-    </div> -->
-
-    <!-- <div class="form-group row">
-        <label for="mail" class="col-sm-2 col-form-label w-auto mx-auto">mail</label>
-        <div class="col-sm-10">
-            <input type="mail" name="mail" value="<?php echo $results['mail']; ?>" class="form-control" placeholder="mail"></input>
-        </div>
-    </div> -->
-
-    <!-- <div class="form-group row">
-        <label for="pass" class="col-sm-2 col-form-label w-auto mx-auto">password</label>
-        <div class="col-sm-10">
-            <input type="password" name="pass" value="<?php echo $results['pass']; ?>" class="form-control" placeholder="password"></input>
-        </div>
-    </div> -->
-
     <div class="form-group row col-sm-2 col-form-label mx-auto ">
         Image
-</div>
+    </div>
     <div id="imgDropTxt" class="text-center contener border">Déposer votre image ici</div>
 
         <input type="file" style="height: 101px;opacity:0.5;" name="avatar" id="imgDrop" class="form-control">
