@@ -166,19 +166,16 @@ article_id <?php echo $_GET['article_id'];?><hr>
     </div> -->
 
     <div class="form-group row col-sm-2 col-form-label mx-auto ">
-        Déposer votre image ici
+        Image
 </div>
-        <input type="file" name="avatar" id="imgDrop" class="form-control">
+    <div id="imgDropTxt" class="text-center contener border">Déposer votre image ici</div>
 
-        <div id="imgDropTxt"> </div>
-
-
-
+        <input type="file" style="height: 101px;opacity:0.5;" name="avatar" id="imgDrop" class="form-control">
 
     </div>
 
     <label for=""></label>
-    <input type="submit" value="update" name="update" class="btn btn-primary">
+    <input type="submit" id="updateBtn" value="update" name="update" class="btn btn-primary">
     <br>
 
 
@@ -214,6 +211,8 @@ article_id <?php echo $_GET['article_id'];?><hr>
             console.log('imgDrop changed')
             console.log($(this))
 
+            uploadOk = true
+
             file = this.files[0]
                 console.log(file)
 
@@ -222,20 +221,73 @@ article_id <?php echo $_GET['article_id'];?><hr>
 
             sizeMo = size / 1000000
                 console.log('Taille Mo : ' + sizeMo)
+            
+            sizeMomax = 1.2
+
+            if (sizeMo > sizeMomax) {
+                console.log('tros lourd')
+                sizeMsg = 'Vote image est trop lourde'
+                sizeMsgColor = 'text-warning'
+                uploadOk = false
+            }
+            else {
+                console.log('weigth ok')
+                sizeMsg = 'le poids de l\'image est'
+                sizeMsgColor = 'text-success'
+            }
+            
 
             type = file.type
                 console.log('Type : ' + type)
 
+
             name = file.name
                 console.log('name : ' + name)
+
+            typeArray = type.split('/')
+                console.log(typeArray)
+                console.log(typeArray[0])
+            
+            if (typeArray[0] == 'image') {
+                    console.log('image') 
+                    typeMsg = 'c\'est le bon format'
+                    typeMsgColor = 'text-success'
+            }
+            else {
+                console.log('weigth ok')
+                typeMsg = 'Le format est pas bon'
+                typeMsgColor = 'text-warning'
+                uploadOk = false
+            }
+
+            
+
             
             msg = 'Vous allez télécharger le fichier : <br>' + name + '</b>'
-            msg =  msg + '<br>Dont la taille est ' + sizeMo
-            msg =  msg + '<br>et l\'extension est ' + type
+            msg =  msg + '<div class="'+ sizeMsgColor + '" >' + sizeMsg + '(' + sizeMo.toFixed(2) + ' Mo  ): 1.5 Mo max autoriser </div>'
+            msg =  msg + '<div class="'+ typeMsgColor + '" >' + typeMsg + '(' + typeArray[0] + ' )</div>'
+            
 
             $('#imgDropTxt').html(msg)
+
+            console.log('uploadOk : ' + uploadOk)
+
+            if (uploadOk) {
+                $('#updateBtn').fadeIn()
+            }
+            else {
+                $('#updateBtn').fadeOut(1000)
+            }
+
             
         })
+
+        // numbers_decimales.js
+            number = 1.111
+                decimales = number.toFixed(2)
+                console.log(decimales)
+
+        
     })
 </script>
 

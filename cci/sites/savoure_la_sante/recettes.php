@@ -245,8 +245,8 @@ try {
     print "Erreur ! " . $e->getMessage() . "<br/>";
 }
 
-$results = $stmt->fetch(PDO::FETCH_ASSOC); {
-    print_r($results);
+$results_cat = $stmt->fetch(PDO::FETCH_ASSOC); {
+    print_r($results_cat);
     // echo '<hr>';
 }
 ?>
