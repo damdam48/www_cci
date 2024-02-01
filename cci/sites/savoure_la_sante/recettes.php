@@ -46,8 +46,8 @@ if (isset($_POST['create'])) {
 //si image envoyer
 if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
     $uploadImgOk = true;
-    echo '<br>';
-    print_r($_FILES);
+    // echo '<br>';
+    // print_r($_FILES);
 
     // retrieve image info
     //size Ko sizeMo, sizeMax
@@ -121,12 +121,6 @@ if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
 
 
 
-
-
-
-
-
-
 // array_cats
 try {
     $sql = "SELECT * FROM recette_cat";
@@ -139,7 +133,7 @@ try {
 while ($recette = $stmt_cats->fetch(PDO::FETCH_ASSOC)) {
     // print_r($recette); echo '<hr>';
 
-    // $recetteArray [id de la catégori ] = nom de la catégorie
+    // $recetteArray [id de la catégori ] = nom de la catégorie;
 
     $recetteArray[$recette['recette_cat_id']] = $recette['recette_cat_name'];
 }
@@ -189,6 +183,7 @@ try {
                             echo '<img src="img/img_icon.png" class="w-75">';
                         }
                         ?>
+
                     </div>
 
                 </div>
@@ -233,3 +228,25 @@ try {
 </div>
 <!-- end imput cration d'recette -->
 </div>
+
+
+<hr><hr>
+<?php 
+try {
+    $sql = "SELECT recette_cat_name FROM recette_cat  WHERE recette_cat_id  ";
+    $stmt=$bdd->prepare($sql);
+    $stmt->execute(
+        array(
+
+
+        )        
+    );
+} catch (Exception $e) {
+    print "Erreur ! " . $e->getMessage() . "<br/>";
+}
+
+$results = $stmt->fetch(PDO::FETCH_ASSOC); {
+    print_r($results);
+    // echo '<hr>';
+}
+?>
