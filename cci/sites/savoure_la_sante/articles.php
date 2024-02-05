@@ -188,19 +188,7 @@
         <h6 class="card-header">Creation d'article</H6>
 
         <div class="card-body">
-            <input class="card-title type="text" name="name" placeholder="name" >
-            <p>
-                <label for="">Choisi une image</label>
-                <br>
-                <input class="card-text" type="file" name="avatar">
-            </p>
-            <select name="article_cat" id="">
-                    <?php foreach ($categoriesArray as $key => $value) { ?>
-                        <option value="<?php echo $key; ?>">
-                            <?php echo $value; ?>
-                        </option>
-                    <?php } ?>
-            </select>
+
             <br>
             <hr>
                 <input class="article btn btn-primary" type="submit" value="create" name="create">
@@ -208,3 +196,47 @@
     </div>
 </form>
 <!-- end imput cration d'article -->
+
+<!-- test du modal  -->
+
+    <!-- Button trigger modal -->
+    <button type="button" class="form-control  w-auto mx-auto article btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+      </button>
+
+<!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            
+          <form method="POST" enctype="multipart/form-data" class="modal-content bg-dark text-light">
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input class="card-title type="text" name="name" placeholder="name" >
+                <p>
+                    <label for="">Choisi une image</label>
+                    <br>
+                    <input class="card-text" type="file" name="avatar">
+                </p>
+                <select name="article_cat" id="">
+                        <?php foreach ($categoriesArray as $key => $value) { ?>
+                            <option value="<?php echo $key; ?>">
+                                <?php echo $value; ?>
+                            </option>
+                        <?php } ?>
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" value="create" name="create" class="btn btn-secondary article btn btn-primary">Oui</button>
+
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Non</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+<!-- end du test modal  -->
