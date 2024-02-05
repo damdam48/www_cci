@@ -1,7 +1,46 @@
-/* header {
-    text-align: center;
+:root {
+    --violet-rose: #df19d5;
+    --aqua: #1dcece;
+    --chartreuse : #7FFF00;
+    --darkSeaGreen : #8FBC8F;
+  }
+
+
+/* users */
+    #card-users {
+      background-color: var(--aqua);
+    }
+
+    #sideBar-users {
+      color: var(--aqua);
+    }
+
+/* articles */
+#card-articles {
+  background-color: var(--violet-rose);
 }
 
-header a {
-    margin-left: 20px;
-} */
+#sideBar-articles {
+  color: var(--violet-rose);
+}
+
+  
+/* categories */
+    #card-categories {
+      background-color: var(--chartreuse);
+    }
+
+    #sideBar-categories {
+      color: var(--chartreuse);
+    }
+
+/* recettes */
+    #card-recettes {
+      background-color: var(--darkSeaGreen);
+    }
+
+    #sideBar-recettes {
+      color: var(--darkSeaGreen);
+    }
+    
+  
