@@ -161,7 +161,7 @@ if (isset($_POST['deleteBtn'])) {
 ?>
 
 <form method="POST" enctype="multipart/form-data" class="contener border border border-primary rounded mx-5">
-
+    <!-- Champ pour name -->
     <div class="form-group row">
         <label for="name" class="col-sm-2 col-form-label w-auto mx-auto">name</label>
         <div class="col-sm-10">
@@ -170,46 +170,54 @@ if (isset($_POST['deleteBtn'])) {
         </div>
     </div>
 
-
-    <div class="form-group row col-sm-2 col-form-label mx-auto ">
-        <input type="file" name="avatar">
-        <!-- <input type="submit" name="upload"> -->
-
-
-
-        <?php
-
-
-        // role 
-        try {
-            $sql = "SELECT * FROM role_cat";
-            $stmt_cats = $bdd->prepare($sql);
-            $stmt_cats->execute();
-        } catch (Exception $e) {
-            print "Erreur ! " . $e->getMessage() . "<br/>";
-        }
-
-        ?>
-
-        <select name="role_cat" class="form-control w-auto mx-auto text-center">
-            <?php while ($recette = $stmt_cats->fetch(PDO::FETCH_ASSOC)) {
-                print_r($recette);
-                echo '<option value="' . $recette['role_id'] . '"';
-                echo $recette['role_id'] == $results['role_cat'] ? ' selected' : '';
-                echo '>' . $recette['role'] . '</option>';
-            } ?>
-        </select> 
+    <!-- Champ pour l'image -->
+    <div class="form-group row">
+        <label for="avatar" class="col-sm-2 col-form-label w-auto mx-auto">Image</label>
+        <div class="col-sm-10">
+            <input type="file" name="avatar" class="form-control-file">
+        </div>
     </div>
 
-    <label for=""></label>
-    <input type="submit" value="update" name="update" class="btn btn-primary">
-    <br>
-
-    <button type="button" class="btn btn-secandary mt-3" form-bs-toggle="collapse" data-bs-target="#deleteDiv"> Suppimer </button>
-
-    <div id="deleteDiv" class="collapse">
-    <button type="submit" name="deleteBtn" class="btn btn-warning"> Confirmer la suppression </button>
-
+    <!-- Afficher l'image actuelle -->
+    <div class="form-group row">
+        <label for="current_image" class="col-sm-2 col-form-label w-auto mx-auto">Image actuelle</label>
+        <div class="col-sm-10">
+            <img src="<?php echo 'img/recette/' . $results['img']; ?>" class="img-thumbnail" alt="Image actuelle de la recette">
+        </div>
     </div>
 
+    <!-- Champ pour la description -->
+    <div class="form-group row">
+        <label for="description" class="col-sm-2 col-form-label w-auto mx-auto">Descriptions</label>
+        <div class="col-sm-10">
+            <textarea name="description" class="form-control" rows="5"><?php echo $results['descriptions']; ?></textarea>
+        </div>
+    </div>
+
+    <!-- Menu déroulant pour la recette_cat -->
+    <div class="form-group row">
+        <label for="recette_cat" class="col-sm-2 col-form-label w-auto mx-auto">Catégorie de recette</label>
+        <div class="col-sm-10">
+            <select name="recette_cat" class="form-control">
+                <?php while ($recette_cat = $stmt_cats->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <option value="<?php echo $recette_cat['recette_cat_id']; ?>" <?php echo ($results['recette_cat'] == $recette_cat['recette_cat_id']) ? 'selected' : ''; ?>><?php echo $recette_cat['recette_cat_name']; ?></option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+
+    <!-- Bouton de mise à jour et suppression -->
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <input type="submit" value="Mettre à jour" name="update" class="btn btn-primary">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <button type="button" class="btn btn-secandary mt-3" form-bs-toggle="collapse" data-bs-target="#deleteDiv">Supprimer</button>
+            <div id="deleteDiv" class="collapse">
+                <button type="submit" name="deleteBtn" class="btn btn-warning">Confirmer la suppression</button>
+            </div>
+        </div>
+    </div>
 </form>

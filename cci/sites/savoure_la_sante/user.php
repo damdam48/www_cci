@@ -216,7 +216,6 @@ if (isset($_POST['deleteBtn'])) {
 
         <select name="role_cat" class="form-control w-auto mx-auto text-center">
             <?php while ($users = $stmt_cats->fetch(PDO::FETCH_ASSOC)) {
-                print_r($users);
                 echo '<option value="' . $users['role_id'] . '"';
                 echo $users['role_id'] == $results['role_cat'] ? ' selected' : '';
                 echo '>' . $users['role'] . '</option>';
