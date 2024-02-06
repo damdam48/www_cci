@@ -1,4 +1,5 @@
-<h1>Recette</h1>
+<h1 id="sideBar-recettes" >Page des recettes</h1>
+<hr>
 
 <div class="row">
 
@@ -45,7 +46,11 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="index.php?p=recette.php&recette_id=<?php echo $results['recette_id']; ?>">Aller a la page</a>
+                        <lu>
+                            <li><a href="index.php?p=recette.php&recette_id=<?php echo $results['recette_id']; ?>">Aller a la page</a></li>
+                            <hr>
+                            <li><a href="index.php?p=recette_update.php&recette_id=<?php echo $results['recette_id']; ?>">Modifier la recette</a></li>
+                        </lu>
                     </div>
                 </div>
             </div>

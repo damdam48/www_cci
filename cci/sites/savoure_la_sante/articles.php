@@ -1,4 +1,5 @@
 <h1 id="sideBar-articles" >Page des articles</h1>
+<hr>
 
 <div class="card">
     <h6 class="card-header" >Liste des articles</H6>
