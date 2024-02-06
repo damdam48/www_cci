@@ -39,7 +39,6 @@
                                     echo 'X';
                                     echo getimagesize($folder . $results['img'])[0].' px';
 
-
                                 }
                                 else {
                                     // echo 'no image';

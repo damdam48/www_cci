@@ -6,6 +6,7 @@ user_id
 
 <?php
 
+
 if (isset($_POST['update'])) {
     // print_r($_POST);
     // print_r($_FILES);
@@ -130,6 +131,33 @@ if (empty($results)) {
 
 // end REQUEST select
 
+
+// Vérifiez si le bouton de suppression a été cliqué
+if (isset($_POST['deleteBtn'])) {
+    // Supprimez l'utilisateur de la base de données
+    try {
+        $sql = "DELETE FROM users WHERE user_id = ?";
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute(array($_GET['user_id']));
+    } catch (Exception $e) {
+        print "Erreur lors de la suppression de l'utilisateur : " . $e->getMessage() . "<br/>";
+    }
+
+    // Supprimez l'image de l'utilisateur du serveur si elle existe
+    $folder = 'img/users/';
+    $userImage = $folder . $results['img']; // Chemin complet de l'image de l'utilisateur
+    if (file_exists($userImage)) {
+        unlink($userImage); // Supprimez l'image du serveur
+    }
+
+    // Redirigez l'utilisateur vers une page appropriée après la suppression
+    header("Location: index.php?p=users.php");
+    exit(); // Assurez-vous de terminer le script après la redirection
+}
+
+
+
+
 ?>
 
 <form method="POST" enctype="multipart/form-data" class="contener border border border-primary rounded mx-5">
@@ -199,5 +227,12 @@ if (empty($results)) {
     <label for=""></label>
     <input type="submit" value="update" name="update" class="btn btn-primary">
     <br>
+
+    <button type="button" class="btn btn-secandary mt-3" form-bs-toggle="collapse" data-bs-target="#deleteDiv"> Suppimer </button>
+
+    <div id="deleteDiv" class="collapse">
+    <button type="submit" name="deleteBtn" class="btn btn-warning"> Confirmer la suppression </button>
+
+    </div>
 
 </form>

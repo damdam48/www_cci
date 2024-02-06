@@ -12,7 +12,7 @@
             // echo '<hr>';
 
             try {
-                $sql = "INSERT INTO articles SET name = ?, article_cat = ? ";
+                $sql = "INSERT INTO article SET name = ?, article_cat = ? ";
                 $stmt = $bdd->prepare($sql);
                 $stmt->execute(
                     array(
@@ -70,7 +70,7 @@
                 }
 
                 if ($uploadImgOk == true) {
-                    $folder = 'img/articles/';
+                    $folder = 'img/article/';
                     $newName = 'article_'.$lastId;
 
 
@@ -81,12 +81,12 @@
             
                         // update table img
                         try {
-                            $sql = "UPDATE articles SET img = ? WHERE articles_id = ? ";
+                            $sql = "UPDATE article SET img = ? WHERE article_id = ? ";
                             $stmt = $bdd->prepare($sql);
                             $stmt->execute(
                                 array(
                                     $newName,
-                                    strip_tags($_GET['articles_id']) 
+                                    $_GET['article_id']
                                 )
                             );
                         } catch (Exception $e) {
@@ -127,7 +127,7 @@
         // echo '<hr>';
         // echo $categoriesArray[1];
         
-        try {$sql = "SELECT * FROM articles";
+        try {$sql = "SELECT * FROM article";
             $stmt = $bdd->prepare($sql);
             $stmt->execute(
                 array(
@@ -154,7 +154,7 @@
                             <?php
                             // img si existe
                             // echo $results['img'];
-                            $folder = 'img/articles/';
+                            $folder = 'img/article/';
                             // print_r(getimagesize($folder . $results['img']));
                         
                             if (@is_array(getimagesize($folder . $results['img']))) {
@@ -172,7 +172,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="index.php?p=article.php&articles_id=<?php echo $results['articles_id']; ?>">Aller a la page</a>
+                        <a href="index.php?p=article.php&article_id=<?php echo $results['article_id']; ?>">Aller a la page</a>
                     </div>
                 </div>
             </div>
@@ -182,40 +182,25 @@
 
 <hr>
 
-<!-- imput cration d'article -->
-<form method="POST" enctype="multipart/form-data">
-    <div class="card">
-        <h6 class="card-header">Creation d'article</H6>
-
-        <div class="card-body">
-
-            <br>
-            <hr>
-                <input class="article btn btn-primary" type="submit" value="create" name="create">
-        </div>
-    </div>
-</form>
-<!-- end imput cration d'article -->
-
 <!-- test du modal  -->
 
     <!-- Button trigger modal -->
     <button type="button" class="form-control  w-auto mx-auto article btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-      </button>
+        Create article
+    </button>
 
 <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             
-          <form method="POST" enctype="multipart/form-data" class="modal-content bg-dark text-light">
+            <form method="POST" enctype="multipart/form-data" class="modal-content bg-dark text-light">
 
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="exampleModalLabel">Création d'un nouvelle article</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input class="card-title type="text" name="name" placeholder="name" >
+                <input class="card-title text-dark " type="text" name="name" placeholder="name" >
                 <p>
                     <label for="">Choisi une image</label>
                     <br>
@@ -230,13 +215,13 @@
                 </select>
             </div>
             <div class="modal-footer">
-              <button type="submit" value="create" name="create" class="btn btn-secondary article btn btn-primary">Oui</button>
+                <button type="submit" value="create" name="create" class="btn btn-secondary article btn btn-primary">Oui</button>
 
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Non</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Non</button>
             </div>
 
-          </form>
+        </form>
 
         </div>
-      </div>
+    </div>
 <!-- end du test modal  -->

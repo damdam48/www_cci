@@ -1,7 +1,7 @@
 <h1>Home</h1>
 
 <?php
-        try { $sql="SELECT users_id FROM users";
+        try { $sql="SELECT user_id FROM users";
             $stmt = $bdd->prepare($sql);
             $stmt->execute( array(
 
@@ -12,7 +12,7 @@
             // echo 'il y a ' . $usersNB . ' users';
             
 
-        try { $sql="SELECT articles_id FROM articles";
+        try { $sql="SELECT article_id FROM article";
             $stmt = $bdd->prepare($sql);
             $stmt->execute( array(
 
@@ -23,7 +23,7 @@
             // echo 'il y a ' . $usersNB . ' article';
             
 
-        try { $sql="SELECT categories_id FROM categories";
+        try { $sql="SELECT categorie_id FROM categorie";
             $stmt = $bdd->prepare($sql);
             $stmt->execute( array(
 
@@ -34,7 +34,7 @@
             // echo 'il y a ' . $usersNB . ' article';
             
 
-        try { $sql="SELECT recettes_id FROM recettes";
+        try { $sql="SELECT recette_id FROM recette";
             $stmt = $bdd->prepare($sql);
             $stmt->execute( array(
 

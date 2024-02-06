@@ -1,4 +1,5 @@
-<h1 class="text-center">Categories</h1>
+<h1 class="">Page des categories</h1>
+<hr>
 <br>
 
 
