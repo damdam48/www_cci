@@ -24,6 +24,8 @@
             } catch (Exception $e) {
                 print "Erreur ! " . $e->getMessage() . "<br/>";
             }
+        }
+
 
             $lastId = $bdd->lastInsertId();
             echo '<p>You have insert the user id :' . $lastId . '</p>';
@@ -73,9 +75,8 @@
                 if ($uploadImgOk == true) {
                     $folder = 'img/article/';
                     $newName = 'article_'.$lastId;
+                    
 
-
-                    // if (@move_uploaded_file($_FILES['avatar']['tmp_name'] , $folder . $newName . '.' .$extension )) {
                     if (@move_uploaded_file($_FILES['avatar']['tmp_name'], $folder . $newName. '.' .$extension)) {
 
                         // echo 'upload ok';
@@ -102,8 +103,6 @@
                 }
             }
             //end de image envoyer
-
-        }
         // fin create
         ?>
 
