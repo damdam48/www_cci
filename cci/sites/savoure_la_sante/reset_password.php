@@ -3,13 +3,13 @@
 include('connectDB.php');
 
 // Initialiser la variable d'erreur de mot de passe
-$passwordMismatchError = '';
+$passwordMessage = '';
 
 if (isset($_POST['update'])) {
     // Vérifier si les mots de passe correspondent
     if ($_POST['pass'] !== $_POST['confirmPassword']) {
         // Si les mots de passe ne correspondent pas, définir le message d'erreur
-        $passwordMismatchError = "Les mots de passe ne correspondent pas.";
+        $passwordMessage = "<div class='text-danger'>Les mots de passe ne correspondent pas.</div>";
     } else {
         try {
             // Vérifier si l'adresse e-mail est définie
@@ -34,28 +34,30 @@ if (isset($_POST['update'])) {
                         $updateStmt->execute(array($_POST['pass'], $email));
 
                         // Afficher un message de succès si la mise à jour est réussie
-                        echo "Mot de passe mis à jour avec succès.";
+                        $passwordMessage = "<div class='text-success'>Mot de passe mis à jour avec succès.</div>";
                     } else {
                         // Afficher un message d'erreur si la clé de réinitialisation est invalide
-                        $passwordMismatchError = "Clé invalide pour la réinitialisation du mot de passe.";
+                        $passwordMessage = "<div class='text-danger'>Clé invalide pour la réinitialisation du mot de passe.</div>";
                     }
                 } else {
                     // Afficher un message si aucun utilisateur n'est trouvé avec cet e-mail
-                    $passwordMismatchError = "Aucun utilisateur trouvé avec cet e-mail.";
+                    $passwordMessage = "<div class='text-danger'>Aucun utilisateur trouvé avec cet e-mail.</div>";
                 }
             } else {
                 // Afficher un message si l'adresse e-mail n'est pas fournie
-                $passwordMismatchError = "Veuillez fournir une adresse e-mail.";
+                $passwordMessage = "<div class='text-danger'>Veuillez fournir une adresse e-mail.</div>";
             }
         } catch (Exception $e) {
             // Gestion des exceptions s'il y a une erreur lors de l'exécution de la requête SQL
-            $passwordMismatchError = "Erreur ! " . $e->getMessage();
+            $passwordMessage = "<div class='text-danger'>Erreur ! " . $e->getMessage() . "</div>";
         }
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,6 +65,7 @@ if (isset($_POST['update'])) {
     <!-- Liens Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -80,15 +83,20 @@ if (isset($_POST['update'])) {
                                 <input type="password" class="form-control" id="newPassword" name="pass" required>
                             </div>
                             <div class="mb-3">
-                                <label for="confirmPassword" class="form-label">Confirmer le Nouveau Mot de Passe</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
-                                <!-- Message d'erreur si les mots de passe ne correspondent pas -->
-                                <?php if(isset($passwordMismatchError)): ?>
-                                    <div class="text-danger"><?php echo $passwordMismatchError; ?></div>
+                                <label for="confirmPassword" class="form-label">Confirmer le Nouveau Mot de
+                                    Passe</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                    required>
+                                <!-- Message d'erreur ou de succès -->
+                                <?php if (isset($passwordMessage)): ?>
+                                    <div class="text-danger">
+                                    <?php echo $passwordMessage; ?>
+                                    </div>
                                 <?php endif; ?>
                             </div>
-                            <button type="submit" name="update" class="btn btn-primary">Réinitialiser le Mot de Passe</button>
-                            <a href="accueil.php" class="btn btn-secondary">Revenir à la Page d'Accueil</a>
+                            <button type="submit" name="update" class="btn btn-primary">Réinitialiser le Mot de
+                                Passe</button>
+                            <a href="index.php" class="btn btn-secondary">Revenir à la Page d'Accueil</a>
                         </form>
                     </div>
                 </div>
@@ -99,4 +107,5 @@ if (isset($_POST['update'])) {
     <!-- Liens Bootstrap JS (optionnel, pour les fonctionnalités avancées) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

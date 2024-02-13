@@ -26,49 +26,49 @@
 
 
   // login test 
-if (isset($_POST['connectBtn'])) {
-  try {
+  if (isset($_POST['connectBtn'])) {
+    try {
       $sql = "SELECT * FROM users WHERE mail = ? ";
       $stmt = $bdd->prepare($sql);
       $stmt->execute(
-          array(
-              strip_tags($_POST['mail'])
-          )
+        array(
+          strip_tags($_POST['mail'])
+        )
       );
       $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
       if (empty($user)) {
-          $loginError = '<p class="bg-danger rounded">mail inconnu</p>';
+        $loginError = '<p class="bg-danger rounded">mail inconnu</p>';
       } else {
-          if ($user['pass'] != $_POST['pass']) { // Ne pas hasher le mot de passe lors de la comparaison
-              $loginError = '<p class="bg-danger rounded">Erreur de mot de passe inconnu</p>';
-          } else {
-              // Connexion réussie
-              echo 'Connexion réussie';
-              $_SESSION['admin'] = $user;
+        if ($user['pass'] != $_POST['pass']) { // Ne pas hasher le mot de passe lors de la comparaison
+          $loginError = '<p class="bg-danger rounded">Erreur de mot de passe inconnu</p>';
+        } else {
+          // Connexion réussie
+          echo 'Connexion réussie';
+          $_SESSION['admin'] = $user;
 
-              try {
-                  $sql = "UPDATE users SET dateConnect = ? WHERE user_id = ? ";
-                  $stmt = $bdd->prepare($sql);
-                  $stmt->execute(
-                      array(
-                          date('Y-m-d H:i:s'),
-                          $user['user_id']
-                      )
-                  );
-              } catch (Exception $e) {
-                  print "Erreur ! " . $e->getMessage() . "<br/>";
-              }
+          try {
+            $sql = "UPDATE users SET dateConnect = ? WHERE user_id = ? ";
+            $stmt = $bdd->prepare($sql);
+            $stmt->execute(
+              array(
+                date('Y-m-d H:i:s'),
+                $user['user_id']
+              )
+            );
+          } catch (Exception $e) {
+            print "Erreur ! " . $e->getMessage() . "<br/>";
           }
+        }
       }
-  } catch (Exception $e) {
+    } catch (Exception $e) {
       print "Erreur ! " . $e->getMessage() . "<br/>";
+    }
   }
-}
 
-    
 
-  
+
+
 
   // deconnectBtn
   elseif (isset($_POST['deconnectBtn'])) {
@@ -119,29 +119,50 @@ if (isset($_POST['connectBtn'])) {
         echo $randomKey;
         // Mettre à jour l'utilisateur avec la clé aléatoire
         try {
-          $sql = "UPDATE users SET randomKey = ? WHERE mail = ?";
+          $sql = "UPDATE users SET randomKey = ?, dateCreation = ? WHERE mail = ?";
           $stmt = $bdd->prepare($sql);
           $stmt->execute(
-            array(
-              $randomKey,
-              strip_tags($_POST['mail'])
-            )
+              array(
+                  $randomKey,
+                  date('Y-m-d H:i:s'), // Mettre à jour la date de création ici
+                  strip_tags($_POST['mail'])
+              )
           );
-        } catch (Exception $e) {
+      } catch (Exception $e) {
           print "Erreur lors de la mise à jour de l'utilisateur : " . $e->getMessage() . "<br/>";
-        }
+      }
+      
+
+        // Créer une constante pour la durée de validité du lien en heures
+        define('DUREE_VALIDITE_LIEN', 1); // Par exemple, 1 heures
+  
+        // Calculer la date et l'heure d'expiration du lien
+        $dateExpiration = date('Y-m-d H:i:s', strtotime($user['dateCreation'] . ' +' . DUREE_VALIDITE_LIEN . ' hours'));
+
+        // Calculer la durée restante avant l'expiration du lien
+        $dureeRestante = strtotime($dateExpiration) - strtotime('now');
+        $dureeRestante = max(0, $dureeRestante); // Assurer que la durée restante ne soit pas négative
+  
+        // Convertir la durée restante en format lisible (heures, minutes, secondes)
+        $heures = floor($dureeRestante / 3600);
+        // $minutes = floor(($dureeRestante % 3600) / 60);
+        // $secondes = $dureeRestante % 60;
+
 
         // Créer un lien avec la clé aléatoire
         $resetLink = "reset_password.php?key=" . $randomKey;
 
-        // Afficher le lien vers la page de réinitialisation du mot de passe
-        echo '<br>';
-        echo "Pour réinitialiser votre mot de passe, veuillez suivre ce lien : <a href='$resetLink'>Réinitialiser le mot de passe</a>";
-
+        // Afficher le lien de réinitialisation du mot de passe avec la durée restante
+        echo "<br>";
+        echo "Pour réinitialiser votre mot de passe, veuillez suivre ce lien : <a href='$resetLink'>Réinitialiser le mot de passe</a>.";
+        echo "<br>";
+        // echo "Ce lien expirera dans $heures heures, $minutes minutes et $secondes secondes.";
+        echo "Ce lien expirera dans $heures heures.";
       }
     }
 
   } ?>
+
 
 
 
@@ -171,13 +192,20 @@ if (isset($_POST['connectBtn'])) {
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <input type="text" name="mail" class="form-control" value="dede@mail.fr" placeholder="Mail" autofocus>
-            <input type="submit" name="passwordLost" class="form-control">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Confirmer votre address mail ?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="text" name="mail" class="form-control mb-2" value="dede@mail.fr" placeholder="Mail" autofocus>
+              <button type="submit" name="passwordLost" class="btn btn-primary w-100">Envoyer</button>
+            </div>
           </div>
         </div>
       </div>
     </form>
-    <!-- Button trigger modal -->
+
+
 
 
   <?php } else { ?>
@@ -334,7 +362,8 @@ if (isset($_POST['connectBtn'])) {
     $stmt->execute(
       array(
 
-      ));
+      )
+    );
   } catch (Exception $e) {
     print "Erreur ! " . $e->getMessage() . "<br/>";
   }
@@ -350,7 +379,8 @@ if (isset($_POST['connectBtn'])) {
     $stmt->execute(
       array(
 
-      ));
+      )
+    );
   } catch (Exception $e) {
     print "Erreur ! " . $e->getMessage() . "<br/>";
   }
@@ -366,7 +396,8 @@ if (isset($_POST['connectBtn'])) {
     $stmt->execute(
       array(
 
-      ));
+      )
+    );
   } catch (Exception $e) {
     print "Erreur ! " . $e->getMessage() . "<br/>";
   }
@@ -383,7 +414,8 @@ if (isset($_POST['connectBtn'])) {
     $stmt->execute(
       array(
 
-      ));
+      )
+    );
   } catch (Exception $e) {
     print "Erreur ! " . $e->getMessage() . "<br/>";
   }
