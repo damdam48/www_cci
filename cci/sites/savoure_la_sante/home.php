@@ -54,30 +54,38 @@
 
 
 
-        <div class="card-group">
-            <div class="card text-white mb-3" id="card-articles">
-                <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=Articles.php">Articles</a> </div>
-                <p class="card-body text-white text-center">Nombres :  <?php echo $articleNB; ?> </p>
-                <div class="card-footer"> </div>
-            </div>
+        <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="card text-white mb-3  mx-auto " id="card-articles">
+                        <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=Articles.php">Articles</a> </div>
+                        <p class="card-body text-white text-center">Nombres :  <?php echo $articleNB; ?> </p>
+                        <div class="card-footer"> </div>
+                    </div>
+                </div>
             
-            <div class="card text-white mb-3" id="card-users" >
-                <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=Users.php">Users</a> </div>
-                <p class="card-body text-white text-center">Nombres :  <?php echo $usersNB; ?> </p>
-                <div class="card-footer"> </div>
-            </div>
-           
-            <div class="card text-white mb-3" id="card-categories">
-                <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=categories.php">categories</a> </div>
-                <p class="card-body text-white text-center">Nombres :  <?php echo $name_catNB; ?> </p>
-                <div class="card-footer"> </div>
-            </div>
+                <div class="col-12 col-md-4">
+                    <div class="card text-white mb-3 mx-auto" id="card-users" >
+                        <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=Users.php">Users</a> </div>
+                        <p class="card-body text-white text-center">Nombres :  <?php echo $usersNB; ?> </p>
+                        <div class="card-footer"> </div>
+                    </div>
+                </div>
             
-            <div class="card text-white mb-3"  id="card-recettes" >
-                <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=recettes.php">recettes</a> </div>
-                <p class="card-body text-white text-center">Nombres :  <?php echo $recette_catNB ; ?> </p>
-                <div class="card-footer"> </div>
-            </div>  
+                <div class="col-12 col-md-4">
+                    <div class="card text-white mb-3 mx-auto" id="card-categories">
+                        <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=categories.php">categories</a> </div>
+                        <p class="card-body text-white text-center">Nombres :  <?php echo $name_catNB; ?> </p>
+                        <div class="card-footer"> </div>
+                    </div>
+                </div>
+            
+                <div class="col-12 col-md-4">
+                    <div class="card text-white mb-3 mx-auto"  id="card-recettes" >
+                        <div class="card-header text-white text-center"> <a class="text-white" href="index.php?p=recettes.php">recettes</a> </div>
+                        <p class="card-body text-white text-center">Nombres :  <?php echo $recette_catNB ; ?> </p>
+                        <div class="card-footer"> </div>
+                    </div>
+                </div>
         </div>
 
     </header>

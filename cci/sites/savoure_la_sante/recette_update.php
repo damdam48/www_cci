@@ -199,23 +199,41 @@
         Supprimer
     </button>
     
-    <!-- Modal supprimer -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <!-- Premier Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark text-light">
-                <form id="deleteForm" method="POST" enctype="multipart/form-data">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Voulez-vous vraiment supprimer la recette ?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary article btn btn-primary" name="deleteBtn" >Oui</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Non</button>
-                    </div>
-                </form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Êtes-vous sûr de vouloir supprimer cette recette ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Non</button>
+                    <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmationModal">Oui</a>
+                </div>
             </div>
         </div>
     </div>
-    <!-- end du modal supprimer -->
-    <!-- end modal  -->
+
+<!-- Deuxième Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Recette supprimée</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    La recette a été supprimée avec succès.
+                    <br>
+                    Souhaitez-vous être redirigé vers la page Recettes ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                    <a href="index.php?p=recettes.php" class="btn btn-primary">Oui</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 

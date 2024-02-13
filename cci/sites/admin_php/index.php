@@ -40,7 +40,7 @@
                     $stmt = $bdd->prepare($sql);
                     $stmt->execute(
                         array(
-                           strip_tags($_POST['mail'])
+                            strip_tags($_POST['mail'])
                             )
                         );   
                     }
