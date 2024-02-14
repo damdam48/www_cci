@@ -1,0 +1,18 @@
+
+
+/* Personnalisation des éléments */
+.navbar-brand {
+    color: #9DBC98; /* Couleur du logo */
+}
+.navbar {
+    background-color: white; /* Couleur de la barre de navigation */
+}
+.nav-link {
+    color: black; /* Couleur du texte des liens */
+}
+.navbar-toggler-icon {
+    background-color: #9DBC98; /* Couleur du bouton de navigation */
+}
+ul.navbar-nav {
+    justify-content: center; /* Centrer les éléments de la liste */
+}

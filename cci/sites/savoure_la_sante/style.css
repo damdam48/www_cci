@@ -1,0 +1,28 @@
+
+
+/* Personnalisation des éléments */
+.navbar-brand {
+    color: #9DBC98 !important; /* Couleur du logo */
+}
+
+.navbar {
+    background-color: white !important; /* Couleur de la barre de navigation */
+}
+
+.nav-link {
+    color: black !important; /* Couleur du texte des liens */
+}
+
+.navbar-toggler-icon {
+    background-color: #9DBC98 !important; /* Couleur du bouton de navigation */
+}
+
+.btn-outline-success {
+background-color: #9DBC98 !important; /* Couleur de bordure du bouton de connexion */
+color: black !important; /* Couleur du texte du bouton de connexion */
+}
+
+
+
+
+
