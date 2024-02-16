@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass_admin": "sass ./src/sass/admin/main.scss ./src/admin/css/styles.css --watch",
+    "sass_public": "sass ./src/sass/public/main.scss ./public/css/styles.css --watch"
   },
   "author": "",
   "license": "ISC",
