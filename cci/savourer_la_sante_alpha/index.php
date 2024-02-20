@@ -40,6 +40,20 @@ echo ma_fonction(100, 10);
 
 echo '<hr>';
 
+function day_franch($arrayDays, $array_months ){
+    return 'Nous sommes '$array_months[$day];
+    
+    }
+    
+    echo ma_fonction( date());
+
+
+
+
+
+
+
+
 function monthFrench($val_1,){
     $array_months = array(1 => 'janvier', 2 => 'février', 3 => 'avril' , 4 => 'mai' , 5 => 'juin', 6 => 'juillet' , 7 => 'août' , 8 => 'octobre' , 9 => 'novembre', 10 => 'décembre');
     $mois = $array_months[$month];
