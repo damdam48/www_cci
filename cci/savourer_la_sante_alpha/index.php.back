@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <?php
+				try
+				{    
+				$bdd = new PDO("mysql:host=localhost;dbname=savourer_la_sante_alpha", "root", "");
+				$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				}
+				catch(Exception $e) {
+				die($erreur_sql='Erreur connect bd: '.$e->getMessage());
+				}
+				
+				// control si ya erreur a la connection de la base
+					if (isset($erreur_sql)) {
+				echo $erreur_sql;
+			}
+
+            
+
+
+
+    try {
+        $sql = "SELECT * FROM carousel";
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute(array());
+    } catch (Exception $e) {
+        print "Erreur ! " . $e->getMessage() . "<br/>";
+    }
+
+    $path='./public/images/img/carousel/';
+    $i = 0
+    ?>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        
+            <?php while ($carousel = $stmt->fetch(PDO::FETCH_ASSOC)) { $i++;  ?>
+                <div class="carousel-item <?php echo $i==1?'active':'';?>">
+                    <img src="<?php echo $path . $carousel['name'];?>" class="d-block w-50" alt="..." style="heigh: 10%;"> 
+                </div>
+            <?php } ?>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
