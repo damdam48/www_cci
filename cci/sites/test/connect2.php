@@ -8,10 +8,10 @@ session_start
     <title>Document</title>
 </head>
 <body>
+<?php
+    if (!empty($_POST))
 
-        if (!empty($_POST))
-
-    si (if) le bouton est préssé
+    // si (if) le bouton est préssé
         if (isset($_POST['connect']))
         
     faire une requette select sur la zone cibler
@@ -57,6 +57,8 @@ session_start
     et un autre (form) pour la déconnection
 
     else { ?>
+
+
         <!-- Formulaire de déconnexion -->
         <form method="POST">
             <!-- Bouton de soumission du formulaire pour la déconnexion avec le focus automatique -->

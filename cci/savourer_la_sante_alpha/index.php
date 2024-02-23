@@ -40,57 +40,32 @@ echo ma_fonction(100, 10);
 
 echo '<hr>';
 
-// Fonction pour calculer la différence entre deux dates et générer un compte à rebours
-function countdown($startDate, $endDate){
-    // Convertir les dates en timestamps
-    $startTimestamp = strtotime($startDate);
-    $endTimestamp = strtotime($endDate);
+function day_franch($arrayDays, $array_months ){
+    return 'Nous sommes '$array_months[$day];
     
-    // Calcul de la différence entre les dates
-    $difference = $endTimestamp - $startTimestamp;
-
-    // Calcul des jours restants
-    $days = floor($difference / (60 * 60 * 24));
-    $difference = $difference - ($days * 60 * 60 * 24);
+    }
     
-    // Calcul des heures restantes
-    $hours = floor($difference / (60 * 60));
-    $difference = $difference - ($hours * 60 * 60);
+    echo ma_fonction( date());
+
+
+
+
+
+
+
+
+function monthFrench($val_1,){
+    $array_months = array(1 => 'janvier', 2 => 'février', 3 => 'avril' , 4 => 'mai' , 5 => 'juin', 6 => 'juillet' , 7 => 'août' , 8 => 'octobre' , 9 => 'novembre', 10 => 'décembre');
+    $mois = $array_months[$month];
+    return $mois;
     
-    // Calcul des minutes restantes
-    $minutes = floor($difference / 60);
-    $difference = $difference - ($minutes * 60);
+    }
     
-    // Calcul des secondes restantes
-    $seconds = $difference;
-    
-    // Retourne un tableau contenant les valeurs du compte à rebours
-    return array('days' => $days, 'hours' => $hours, 'minutes' => $minutes, 'seconds' => $seconds);
-}
+    echo monthFrench(date('n'));
 
-// Date de début du compte à rebours
-$startDate = "2024-03-01 00:00:00";
+    echo '<hr>';
 
-// Date de fin du compte à rebours (date cible)
-$endDate = "2024-03-01 12:00:12";
-
-// Appel de la fonction countdown avec les dates de début et de fin
-$countdownValues = countdown($startDate, $endDate);
-
-// Affichage des valeurs du compte à rebours
-echo 'il reste '. $countdownValues['days'] .' Jours ' . $countdownValues['hours'] . ' Heures ' . $countdownValues['minutes'] . ' minutes ' . ' et ' . $countdownValues['seconds'] . ' Secondes ' . 'a votre abonnement .' . "<br/>";
-
-
-
-
-
-
-// function day_franch($arrayDays, $array_months ){
-//     return 'Nous sommes '$array_months[$day];
-    
-//     }
-    
-//     echo ma_fonction( date());
+    echo dayFrench();
 
 
 
@@ -99,23 +74,41 @@ echo 'il reste '. $countdownValues['days'] .' Jours ' . $countdownValues['hours'
 
 
 
-// function monthFrench($val_1,){
-//     $array_months = array(1 => 'janvier', 2 => 'février', 3 => 'avril' , 4 => 'mai' , 5 => 'juin', 6 => 'juillet' , 7 => 'août' , 8 => 'octobre' , 9 => 'novembre', 10 => 'décembre');
-//     $mois = $array_months[$month];
-//     return $mois;
-    
-//     }
-    
-//     echo monthFrench(date('n'));
 
-//     echo '<hr>';
 
-//     echo dayFrench();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     ?>
 
 
+<?php
+// Définition de la locale en français
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+
+// Initialisation du tableau contenant les noms des mois
+$array_months = array();
+
+// Remplissage du tableau avec les noms des mois en français
+for ($mois = 1; $mois <= 12; $mois++) {
+    $nom_mois = strftime("%B", mktime(0, 0, 0, $mois, 1));
+    $array_months[] = $nom_mois;
+}
+
+// Affichage du tableau des noms des mois
+print_r($array_months);
+?>
 
 
 </body>

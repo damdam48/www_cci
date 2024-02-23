@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `carousel` (
   `state` int NOT NULL DEFAULT '1',
   `name` tinytext,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `carousel`
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`comment_id`),
   KEY `recettes_comments` (`recette_id`),
   KEY `users_comments` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `comments`
@@ -77,9 +77,9 @@ DROP TABLE IF EXISTS `ingredients`;
 CREATE TABLE IF NOT EXISTS `ingredients` (
   `ingredients_id` int NOT NULL AUTO_INCREMENT,
   `name` tinytext,
-  `ig` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Indice glycémique pour 100g',
+  `ig` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'Indice glycémique pour 100g',
   PRIMARY KEY (`ingredients_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `ingredients`
@@ -114,14 +114,14 @@ CREATE TABLE IF NOT EXISTS `recettes` (
   `recette_id` int NOT NULL AUTO_INCREMENT,
   `saison_id` int DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `img` varchar(255) DEFAULT NULL,
   `date_create` date DEFAULT NULL,
   `date_update` date DEFAULT NULL,
   `number_views` varchar(5) DEFAULT NULL,
   `online` tinyint(1) DEFAULT '0' COMMENT '0=off / 1=on',
   PRIMARY KEY (`recette_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `recettes`
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `recette_ingredients_asso` (
   PRIMARY KEY (`recette_ingredients_id`),
   KEY `recette_rectte_ingredients_asso` (`recette_id`),
   KEY `ingredients_rectte_ingredients_asso` (`ingredient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `recette_ingredients_asso`
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `recherches` (
   `date_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`recherche_id`),
   KEY `ingredient_recherche` (`ingredient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `role_id` int NOT NULL AUTO_INCREMENT,
   `role` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`role_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `roles`
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `saisons` (
   `mois_fin` int NOT NULL,
   `jour_fin` int NOT NULL,
   PRIMARY KEY (`saison_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `saisons`
@@ -233,14 +233,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(50) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `mail` varchar(100) DEFAULT NULL,
-  `pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `img` varchar(100) DEFAULT NULL,
   `role_id` int DEFAULT NULL,
   `date_connect` datetime DEFAULT NULL,
-  `random_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `random_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`

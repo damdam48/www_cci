@@ -111,18 +111,41 @@
 // Une fois qu’il entre n'entre plus rien, le script calcule et affiche la moyenne.
 
 
-let nomber;
+// let nomber;
 
-do {
-    nomber = parseFloat(prompt(`Entre une note :`));
+// do {
+//     nomber = parseFloat(prompt(`Entre une note :`));
 
-    if (isNaN(nomber)) {
-        alert("Tu doit rentrer des CHIFFRES");
-    } else if (nomber >= 21 || nomber < 0) {
-        alert("Entre un chiffre en 0 et 20");
-    }
+//     if (isNaN(nomber)) {
+//         alert("Tu doit rentrer des CHIFFRES");
+//     } else if (nomber >= 21 || nomber < 0) {
+//         alert("Entre un chiffre en 0 et 20");
+//     }
 
-} while (nomber >= 21 || nomber < 0 || isNaN(nomber));
+// } while (nomber >= 21 || nomber < 0 || isNaN(nomber));
 
-alert(`Ta note est de (${nomber})`);
+// alert(`Ta note est de (${nomber})`);
+
+
+// corriger
+// let userNote;
+// let sum = 0; // Je l'initalise à O pour en faire un type number (du coup je peux faire des opérations)
+// let i = 0;
+
+// do  {
+//     userNote =  prompt("saisi la note " + (i+1));
+//     // Je teste si j'ai une valeur comprise entre 0 et 20 (et je valide que ce n'est pas du texte)
+//     if (userNote >= 0 && userNote <= 20 && !isNaN(parseFloat(userNote))) {    
+//         i++;
+//         sum += parseFloat(userNote); // Je parse pour pouvoir faire une somme et non une concatenation
+//         if (userNote === 0) userNote=true;
+//     } else if (userNote) {
+//         alert("Tu as écris du texte, moi je veux une note");
+//         continue;
+//     } else if ( i<=1 ) {
+//         userNote=true;
+//         alert("Tu as entré moins de 2 notes, comment tu veux que je calcule ? tu me prends pour un écolo ou gouvernement ?");
+//     }
+// } while (userNote);
+// alert(`la moyenne de tes ${i} notes est de ${sum/i}`);
 
