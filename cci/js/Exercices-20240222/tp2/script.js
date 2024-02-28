@@ -20,8 +20,8 @@
 
 // for ------------------------
 
-// let n = parseFloat(prompt("Entrer un nombre entier :"));
-// for (let i = 0; i < 10; i++) {
+// let n = parseFloat(prompt("Entrer un nombre entier :")).trim;
+// for (let i=0; i<10; i++) {
 //     console.log(n*i);
 // }
 
@@ -29,11 +29,11 @@
 // --------------------------
 // liste toutes les tables
 
-for (let i = 0; i <= 10; i++) {
+for (let i=0; i<=10; i++) {
     console.log(`Voici la table (${i}) de multiplication`);
 
-    for (let l = 0; l <= 10; l++) {
-        console.log(`${i} x ${l} = ${i*l}`);
+    for (let j=0; j<=10; j++) {
+        console.log(`${i} x ${j} = ${i*j}`);
     }
 console.log("---------------------------------------------");
 
