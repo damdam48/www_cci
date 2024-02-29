@@ -1,0 +1,71 @@
+"use strict"
+
+/** ################## */
+/* 1. Changer le contenu du bouton contactez-moi en : "Changer le titre" */
+/** ################## */
+
+let buttonContact = document.querySelector('#welcome a.btn.blue');
+let originalTextContentButtonContact = buttonContact.textContent; // "Contactez-moi"
+buttonContact.textContent = "Changer le titre";
+
+/** ################## */
+/* 2. Créer une fonction changeJumbotronTitle() qui :
+ - changera le Titre du Jumbotron en : "Youhou"
+ - remettra le texte initial du bouton*/
+/** ################## */
+function changeJumbotronTitle() {
+	// Je recupère le titre à changer
+	let jumbotronTitle = document.querySelector('#welcome h1');
+	// Change le contenu text du titre
+	jumbotronTitle.textContent = "Youhou";
+	// Remet le text initial du bouton contact
+	buttonContact.textContent = originalTextContentButtonContact;
+}
+/** ################## */
+/* 3. A l'aide de onclick = changeJumbotronTitle, faites en sorte que le titre se change au clic sur le bouton nouvellement nommé "Changer le titre" */
+/** ################## */
+
+buttonContact.href = "#welcome";
+// buttonContact.setAttribute('repas', 'Ceviche');
+buttonContact.onclick = changeJumbotronTitle;
+
+// buttonContact.addEventListener('click', function(e) {
+// 	e.preventDefault();
+// 	changeJumbotronTitle();
+// })
+
+
+/** ################## */
+/* 4. Faire une autre fonction nommée changeCompetence() qui :
+- Changera le contenu des paragraphes de la section compétence avec le contenu de ce tableau :
+- Charger les bonnes images
+/** ################## */
+
+function changeCompetence() {
+	// Tableau contenant les nouveaux textes des paragraphes
+	let newContentParagraphs = [
+        "L'HyperText Markup Language, généralement abrégé HTML, est le langage de balisage conçu pour représenter les pages web.",
+        "Les feuilles de style en cascade, généralement appelées CSS de l'anglais Cascading Style Sheets, forment un langage informatique qui décrit la présentation des documents HTML et XML. Les standards définissant CSS sont publiés par le World Wide Web Consortium.",
+        "JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais aussi pour les serveurs avec l'utilisation de Node.js.",
+        "AngularJS est un framework JavaScript libre et open source développé par Google. Il permet de développer des pages web"
+    ]
+	// Je crée un tableau qui va contenir le nom de mes images
+	let newSrcImages = ['html', 'css', 'js', 'angular'];
+
+	// Je recupère tous les paragraphes
+	let competenceParagraphs = document.querySelectorAll('#competence p');
+	let competenceImages = document.querySelectorAll('#competence img');
+
+	// Je boucle dans la Node List qui contient les paragraphes
+	for(let i=0; i<competenceParagraphs.length; i++) {
+		// console.log(competenceParagraphs[i]);
+		competenceParagraphs[i].textContent = newContentParagraphs[i];
+		competenceImages[i].src = `img/logos/${newSrcImages[i]}.png`;
+	}
+}
+
+// Je récupère mon titre
+let competenceTitle = document.querySelector('#competence h1');
+competenceTitle.onclick = changeCompetence;
+
+// document.querySelectory('#competence h1').onclick = changeCompetence;
