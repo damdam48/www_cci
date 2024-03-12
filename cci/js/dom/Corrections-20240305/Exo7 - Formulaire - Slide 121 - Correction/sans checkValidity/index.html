@@ -10,37 +10,46 @@
 <body>
 
     <form id="myForm">
+<!-- 
+        <span class="form_col">Sexe :</span>
+        <label><input name="sex" type="radio" value="H" />Homme</label>
+        <label><input name="sex" type="radio" value="F" />Femme</label>
+        <span class="tooltip">Vous devez sélectionnez votre sexe</span>
+        <br /><br /> -->
 
         <label class="form_col" for="lastName">Nom :</label>
-        <input name="lastName" id="lastName" type="text" required />
+        <input name="lastName" id="lastName" type="text" />
         <span class="tooltip">Un nom ne peut pas faire moins de 2 caractères</span>
         <br /><br />
 
         <label class="form_col" for="firstName">Prénom :</label>
-        <input name="firstName" id="firstName" type="text" required />
+        <input name="firstName" id="firstName" type="text" />
+
         <span class="tooltip">Un prénom ne peut pas faire moins de 2 caractères</span>
         <br /><br />
 
         <label class="form_col" for="age">Âge :</label>
-        <input name="age" id="age" type="text" required />
+        <input name="age" id="age" type="text" />
         <span class="tooltip">L'âge doit être compris entre 5 et 140</span>
         <br /><br />
 
         <label class="form_col" for="login">Pseudo :</label>
-        <input name="login" id="login" type="text" required />
+        <input name="login" id="login" type="text" />
         <span class="tooltip">Le pseudo ne peut pas faire moins de 4 caractères</span>
         <br /><br />
 
         <label class="form_col" for="pwd1">Mot de passe :</label>
-        <input name="pwd1" id="pwd1" type="password" required />
+        <input name="pwd1" id="pwd1" type="password" />
         <span class="tooltip">Le mot de passe ne doit pas faire moins de 6 caractères</span>
 
         <br /><br />
 
         <label class="form_col" for="pwd2">Mot de passe (confirmation) :</label>
-        <input name="pwd2" id="pwd2" type="password" required />
+        <input name="pwd2" id="pwd2" type="password" />
         <span class="tooltip">Le mot de passe de confirmation doit être identique à celui d'origine</span>
         <br /><br />
+
+        <label class="form_col" for="country">Pays :</label>
 
         <br /><br />
 
@@ -53,8 +62,8 @@
         <input type="submit" value="M'inscrire" />
 
     </form>
-<script> "use script"</script>
-    <script src="app.js"></script>
+
+    <script src="script.js"></script>
 
 
 </body>

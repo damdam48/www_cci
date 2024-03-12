@@ -1,0 +1,63 @@
+/* Font-family */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, display-1, display-2, .btn {
+    font-family: 'Abel', sans-serif;
+}
+
+h1 {
+    font-size : 2.2rem;
+}
+
+/* Links */
+a {
+    color: #7e98a7;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightgrey;
+    text-decoration: underline;
+}
+
+a.dark:hover {
+    color: rgb(37, 37, 37);
+}
+
+/* navbar links */
+nav a, nav span {
+    font-size: 1.2rem;
+    color: rgb(37, 37, 37);
+}
+
+nav a:hover {
+    color: #5d879c;
+    text-decoration: underline;
+}
+
+/* figure */
+figcaption {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Special class text */
+
+.lead {
+    font-size: 1.5rem;
+}
+
+.display-1 {
+    font-size: 4rem;
+}
+
+.display-2 {
+    font-size: 3rem;
+}
+
+.footer {
+    font-size: 0.95rem;
+}

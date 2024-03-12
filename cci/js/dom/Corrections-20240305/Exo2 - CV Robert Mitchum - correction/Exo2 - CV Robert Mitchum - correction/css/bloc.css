@@ -1,0 +1,195 @@
+/* ##################
+Section généralités 
+#####################*/
+section {
+    padding: 3rem 2rem 8rem 2rem;
+    margin: 0rem;
+    line-height: 2rem;
+}
+
+section h1,
+section hr {
+    text-align: center;
+}
+
+section h1+hr {
+    width: 50%;
+    margin-bottom: 7rem;
+}
+
+
+/* ##################
+Header
+################### */
+header {
+    background: url("../img/bg-header.jpg");
+    background-size: cover;
+    padding: 1rem;
+    /* border-bottom : 10px solid rgb(37, 37, 37); */
+}
+
+/* Navbar top */
+#top {
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: none;
+}
+
+/* Navbar-top mail */
+#top div:first-child {
+    line-height: 2.5rem;
+    padding-left : 2rem;
+    float: left;
+}
+
+/* Navbar-top sociaux */
+#top #social {
+    float: right;
+    margin: 0.25rem;
+
+}
+
+#top #social a {
+    display: inline-block;
+    background: url("../img/sprite-social.png") no-repeat;
+    opacity: 0.6;
+    width: 32px;
+    height: 32px;
+    margin: 0 3px;
+}
+
+#top #social a.facebook:hover {
+    background-position: 0px -35px;
+}
+#top #social a.twitter {
+    background-position: -34px 0px;
+}
+#top #social a.facebook:hover {
+    background-position: 0px -35px;
+}
+#top #social a.facebook:hover {
+    background-position: 0px -35px;
+}
+#top #social a.facebook:hover {
+    background-position: 0px -35px;
+}
+
+
+
+
+
+
+
+
+#logo{
+    text-align: center;
+    margin : 6rem auto;
+} 
+
+/* Bordure de la photo */
+#logo img {
+    padding: 0.3rem;
+    border: 1px solid lightgrey;
+    margin : 0 auto;
+    background-color: rgb(37, 37, 37);
+}
+
+/* Nom de l'auteur */
+#logo h1 {
+    padding-top: 10px;
+    margin : 0 auto;
+}
+
+/* ##################
+Nav
+################### */
+
+/* Position navbar */
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 0 20%;
+}
+
+nav ul {
+    background: rgb(233, 233, 233);
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: .5rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+    box-shadow: inset 0px 0px 15px rgb(37, 37, 37);
+}
+
+nav li {
+    display: inline-block;
+    padding: 0 0.8rem;
+}
+
+/* ###################
+Welcome
+################### */
+#welcome {
+    text-align: center;
+}
+
+/* Décalage du bouton contacter moi */
+#welcome p:last-child {
+    margin-top: 3.5rem;
+}
+
+/* ###################
+Compétences
+################### */
+
+#competence>div {
+    margin: 2.2rem auto;
+    padding: 2rem;
+    min-width: 500px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+#competence img{
+    width: 128px;
+    height: 128px;
+    align-self: center;
+}
+
+#competence>div div {
+    margin: 0 0 0 2rem ;
+}
+
+/* ###################
+Références
+################### */
+
+#ref #container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#ref #container div, #ref figure {
+    width: 288px;
+    margin: 0;
+}
+
+
+
+/* ###################
+Footer
+################### */
+footer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    align-self: center;
+}

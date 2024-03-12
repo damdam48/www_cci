@@ -1,0 +1,16 @@
+.para {
+    background-color: red;
+}
+
+#myDiv {
+    background-color: green;
+}
+
+#myDiv2 {
+    border: 6px solid purple;
+    background-color: lightblue;
+}
+
+img {
+    display: block;
+}
